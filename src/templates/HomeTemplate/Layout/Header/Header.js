@@ -37,19 +37,19 @@ export default function Header(props) {
     return (
         <header id="myP" style={{position:'fixed'}} className="p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-0 bg-black text-black fixed w-screen z-10 ">
             <div className="container flex justify-between h-16 mx-auto">
-                <div className="flex justify-center items-center  ">
+                <div className="flex justify-center items-center div-logo">
                 <NavLink to='/' aria-label="Back to homepage" className="flex items-center py-2 pr-2">
                     <img className="logo" src={logoBlack}  alt="cyberlearn.vn" />
                 </NavLink>
                 <ul className="items-stretch hidden space-x-3 lg:flex pt-1 ">
                     <li className="flex ">
-                        <NavLink to="/home" href="#" className="flex items-center -mb-1 border-b-2 px-4 border-transparent text-violet-400 border-violet-400 text-black" activeClassName="border-b-1 border-black">Home</NavLink>
+                        <NavLink to="/home" href="#" className="flex items-center -mb-1 border-b-2 px-4 border-transparent text-violet-400 border-violet-400 text-black" activeClassName="border-b-1 border-black active-item">Home</NavLink>
                     </li>
                     <li className="flex ">
-                        <NavLink to="/contact" href="#" className="flex items-center px-4 -mb-1 dark:border-transparent text-black" activeClassName="border-b-1 border-black">Contact</NavLink>
+                        <NavLink to="/contact" href="#" className="flex items-center px-4 -mb-1 dark:border-transparent text-black" activeClassName="border-b-1 border-black active-item">Contact</NavLink>
                     </li>
                     <li className="flex ">
-                        <NavLink to="/news" href="#" className="flex items-center px-4 -mb-1 dark:border-transparent text-black" activeClassName="border-b-1 border-black">News</NavLink>
+                        <NavLink to="/news" href="#" className="flex items-center px-4 -mb-1 dark:border-transparent text-black" activeClassName="border-b-1 border-black active-item">News</NavLink>
                     </li>
                     
                 </ul>
