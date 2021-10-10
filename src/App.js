@@ -4,6 +4,8 @@ import { Router, Switch } from 'react-router';
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate';
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
+import { LoginTemplate } from './templates/LoginTemplate/LoginTemplate';
+
 import Contact from './pages/Contact/Contact';
 import News from './pages/News/News';
 import Login from './pages/Login/Login';
@@ -23,7 +25,7 @@ import User from './pages/Admin/User/User';
 import AddUser from './pages/Admin/User/AddUser/AddUser';
 import EditUser from './pages/Admin/User/EditUser/EditUser';
 import Booked from './pages/Admin/User/Booked/Booked';
-
+import LoginAnimation from './pages/Login/LoginAnimation';
 
 
 // import { Suspense, lazy } from 'react';
@@ -44,8 +46,10 @@ function App() {
         <HomeTemplate path="/profile" exact Component={Profiles}/>
         {/* User */}
         <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} />
-        <UserTemplate path="/login" exact Component={Login} />
-        <UserTemplate path="/register" exact Component={Register} />
+        {/* <UserTemplate path="/login" exact Component={Login} /> */}
+        <LoginTemplate path="/login" exact Component={Login} />
+        {/* <UserTemplate path="/register" exact Component={Register} /> */}
+        <HomeTemplate path="/logina" exact Components={LoginAnimation}/>
         {/* Admin user*/}
         <AdminTemplate path="/admin" exact Component={Dashboard}></AdminTemplate>
         <AdminTemplate path="/admin/user" exact Component={User}></AdminTemplate>

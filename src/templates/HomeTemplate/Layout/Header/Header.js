@@ -15,7 +15,7 @@ export default function Header(props) {
                         history.push('/login')
                     }} className="self-center px-8 py-3 rounded">Sign in</button>
                     <button onClick={()=>{
-                        history.push('/register')
+                        history.push('/login')
                     }} className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-coolGray-900">Sign up</button>
             </Fragment>
         }

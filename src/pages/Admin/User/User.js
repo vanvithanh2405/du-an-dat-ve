@@ -34,7 +34,12 @@ export default function User() {
                 }
                 return -1;
             },
-            width:'10%'
+            render: (text,user)=>{ return <Fragment>
+                {user.hoTen.length>15 ? user.hoTen.substr(0,15)+ '...' : user.hoTen}
+            </Fragment>
+            },
+            hover:'hoTen',
+            width:'15%'
         },
         {
           title: 'Tài khoản',
@@ -48,8 +53,12 @@ export default function User() {
             }
             return -1;
         },
+        render: (text,user)=>{ return <Fragment>
+            {user.taiKhoan.length>15 ? user.taiKhoan.substr(0,15)+ '...' : user.taiKhoan}
+        </Fragment>
+        },
           sortDirections: ['descend'],
-          width:'10%'
+          width:'15%'
 
         },
         
@@ -66,6 +75,10 @@ export default function User() {
                 }
                 return -1;
             },
+            render: (text,user)=>{ return <Fragment>
+                {user.email.length>15 ? user.email.substr(0,15)+ '...' : user.email}
+            </Fragment>
+            },
     
             sortDirections: ['descend', 'ascend'],
         },
@@ -73,12 +86,18 @@ export default function User() {
             title: 'Số điện thoại',
             dataIndex: 'soDt',
             sorter: (a, b) => a.soDt - b.soDt,
+            render: (text,user)=>{ return <Fragment>
+                {user.soDt.length>12 ? user.soDt.substr(0,12)+ '...' : user.soDt}
+            </Fragment>
+            },
             sortDirections: ['descend', 'ascend'],
         },
         {
             title: 'Loại người dùng',
             dataIndex: 'maLoaiNguoiDung',
-            responsive: ["sm"]
+            responsive: ["sm"],
+            width:'15%'
+
         },
         {
             title: 'Công cụ',

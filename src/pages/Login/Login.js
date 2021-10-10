@@ -1,17 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useEffect,useState } from 'react';
 import { useFormik } from 'formik';
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { dangNhapAction } from './../../redux/acitons/QuanLyNguoiDungAction'
+import { dangNhapAction, dangKyAction } from './../../redux/acitons/QuanLyNguoiDungAction';
+import * as yup from 'yup';
+
+import './LoginAnimation.css'
+import { GROUP_ID } from '../../util/settings/config';
+
 export default function Login(props) {
 
-    const dispatch = useDispatch()
-
+const dispatch = useDispatch()
+    //login
     const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
-
     console.log('userLogin', userLogin)
-    
     const formik = useFormik({
         initialValues: {
             taiKhoan: '',
@@ -26,63 +29,130 @@ export default function Login(props) {
             console.log('values', values)
         },
     });
+    const [formType, setFormType] = useState('login')
+
+    const hanldeChangeForm = (type)=>{
+        setFormType(type);
+    }
+
+    //signUp
+    const { errors } = useSelector((state) => state.QuanLyNguoiDungReducer);
+    console.log('errorsScreen', errors)
+
+    const formikDangKy =  useFormik({
+    initialValues:{
+        taiKhoan: "",
+        matKhau: "",
+        email: "",
+        soDt: "",
+        maNhom: GROUP_ID,
+        hoTen: ""
+    },
+    validationSchema: yup.object().shape({
+        taiKhoan: yup.string().required("* Cần điền nội dung vào Field"),
+        matKhau: yup.string().required("* Cần điền nội dung vào Field").min(6 , "Mặt khẩu tối thiểu 6 ký tự").max(30 , "Mặt khẩu tối đa 30 ký tự"),
+        hoTen: yup.string().required("* Cần điền nội dung vào Field"),
+        email: yup.string().required("* Cần điền nội dung vào Field").email("* Định dạng email phù hợp"),
+        soDt: yup.string().required("* Cần điền nội dung vào Field").matches(/^[0-9]+$/).min(6 , "Số điện thoại tối thiểu 6 ký tự").max(20 , "Số điện thoại tối đa 20 ký tự"),
+        maNhom: yup.string().required("* Cần điền nội dung vào Field")
+    }),
+    onSubmit: values => {
+        values.maNhom = GROUP_ID;
+        const action = dangKyAction(values);
+        dispatch(action);
+        console.log('values: ', values);
+    },
+
+    })
 
     return (
-        <form onSubmit={(event) => {
-            event.preventDefault();
-            formik.handleSubmit(event);
-        }} className="lg:w-1/2 xl:max-w-screen-sm">
-            <div className="py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
-                <div className="cursor-pointer flex items-center">
-                    <div>
-                        <svg className="w-10 text-indigo-500" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 225 225" style={{ enableBackground: 'new 0 0 225 225' }} xmlSpace="preserve">
-                            <style type="text/css" dangerouslySetInnerHTML={{ __html: "\n                                    .st0{fill:none;stroke:currentColor;stroke-width:20;stroke-linecap:round;stroke-miterlimit:3;}\n                                " }} />
-                            <g transform="matrix( 1, 0, 0, 1, 0,0) ">
-                                <g>
-                                    <path id="Layer0_0_1_STROKES" className="st0" d="M173.8,151.5l13.6-13.6 M35.4,89.9l29.1-29 M89.4,34.9v1 M137.4,187.9l-0.6-0.4     M36.6,138.7l0.2-0.2 M56.1,169.1l27.7-27.6 M63.8,111.5l74.3-74.4 M87.1,188.1L187.6,87.6 M110.8,114.5l57.8-57.8" />
-                                </g>
-                            </g>
-                        </svg>
-                    </div>
-                    <div className="text-2xl text-indigo-800 tracking-wide ml-2 font-semibold">CYBERLEARN</div>
+
+        
+        <section className="forms-section">
+        <Link to="/">
+            <img className="logoLogin" src="./../../imgRap/LOGO/LogoR22.png" alt="logo" />
+        </Link>
+        <div className="forms pt-20">
+          <div className={`form-wrapper ${formType === 'login' ? 'is-active' : ''}`}>
+        <button type="button" className="switcher switcher-login" onClick={() => hanldeChangeForm('login')}>
+              Login
+              <span className="underline" />
+            </button>
+            <form className="form form-login" 
+            onSubmit={(event) => {
+                event.preventDefault();
+                formik.handleSubmit(event);}} >
+              <fieldset>
+                <legend>Please, enter your email and password for login.</legend>
+                <div className="input-block">
+                  <label htmlFor="login-email">Tài khoản</label>
+                  <input id="login-email" type="text" name="taiKhoan" onChange={formik.handleChange} placeholder="Nhập vào tài khoản" required />
                 </div>
-            </div>
-            <div className="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
-                <h2 className="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
-              xl:text-bold">Đăng nhập</h2>
-                <div className="mt-12">
-                    <div>
-                        <div>
-                            <div className="text-sm font-bold text-gray-700 tracking-wide">Tài khoản</div>
-                            <input name="taiKhoan" onChange={formik.handleChange} className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào tài khoản" />
-                        </div>
-                        <div className="mt-8">
-                            <div className="flex justify-between items-center">
-                                <div className="text-sm font-bold text-gray-700 tracking-wide">
-                                    Mật khẩu
-                                </div>
-                                <div>
-                                    <a className="text-xs font-display font-semibold text-indigo-600 hover:text-indigo-800
-                                  cursor-pointer">
-                                        Quên mật khẩu ?
-                                    </a>
-                                </div>
-                            </div>
-                            <input name="matKhau" onChange={formik.handleChange} className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Nhập vào mật khẩu" />
-                        </div>
-                        <div className="mt-10">
-                            <button className="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
-                          font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
-                          shadow-lg">
-                                Đăng nhập
-                            </button>
-                        </div>
-                    </div>
-                    <div className="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
-                        Bạn chưa có tài khoản ? <NavLink to="/register" className="cursor-pointer text-indigo-600 hover:text-indigo-800">Đăng ký</NavLink>
-                    </div>
+                <div className="input-block">
+                  <label htmlFor="login-password">Password</label>
+                  <input id="login-password" type="password" name="matKhau" onChange={formik.handleChange} placeholder="Nhập vào mật khẩu" required />
                 </div>
-            </div>
-        </form>
+              </fieldset>
+              <button style={{background:"#848484"}} type="submit" className="btn-login">Login</button>
+            </form>
+          </div>
+          <div className={`form-wrapper ${formType === 'signup' ? 'is-active' : ''}`}>
+            <button type="button" className="switcher switcher-signup" onClick={() => hanldeChangeForm('signup')}>
+              Sign Up
+              <span className="underline" />
+            </button>
+            <form className="form form-signup" onSubmit={formikDangKy.handleSubmit}>
+              <fieldset>
+                <legend>Đăng ký bằng cách điền thông tin cá nhân theo yêu cầu.</legend>
+                <div className="form-group">
+                        <label>Tài khoản{formikDangKy.errors.taiKhoan && formikDangKy.touched.taiKhoan ? (<span style={{ color: 'red' }}><span className="text-black">:</span> {formikDangKy.errors.taiKhoan} </span>) : null}</label>
+                        <input name="taiKhoan" type="text" className="form-control" onChange={formikDangKy.handleChange}/>
+                        
+                    </div>
+                    <div className="form-group">
+                        <label>Mật khẩu{formikDangKy.errors.matKhau && formikDangKy.touched.matKhau ? (<span style={{ color: 'red' }}><span className="text-black">:</span> {formikDangKy.errors.matKhau} </span>) : null}</label>
+                        <input name="matKhau" type="password" className="form-control" onChange={formikDangKy.handleChange}/>
+                       
+                    </div>
+                    <div className="form-group">
+                        <label>Họ tên{formikDangKy.errors.hoTen && formikDangKy.touched.hoTen ? (<span style={{ color: 'red' }}><span className="text-black">:</span> {formikDangKy.errors.hoTen} </span>) : null}</label>
+                        <input name="hoTen" type="text" className="form-control" onChange={formikDangKy.handleChange}/>
+                        
+                    </div>
+                    <div className="form-group">
+                        <label>Email{formikDangKy.errors.email && formikDangKy.touched.email ? (<span style={{ color: 'red' }}><span className="text-black">:</span> {formikDangKy.errors.email} </span>) : null}</label>
+                        <input name="email" type="text" className="form-control" onChange={formikDangKy.handleChange}/>
+                        
+                        
+                    </div>
+                    <div className="form-group">
+                        <label>Số diện thoại{formikDangKy.errors.soDt && formikDangKy.touched.soDt ? (<span style={{ color: 'red' }}><span className="text-black">:</span> {formikDangKy.errors.soDt} </span>) : null}</label>
+                        <input name="soDt" type="text" className="form-control" onChange={formikDangKy.handleChange}/>
+                        
+
+                    </div>
+                    <div className="form-group">
+                        <label>Mã nhóm{formikDangKy.errors.maNhom && formikDangKy.touched.maNhom ? (<span style={{ color: 'red' }}><span className="text-black">:</span> {formikDangKy.errors.maNhom} </span>) : null}</label>
+                        <select name="maNhom" className="form-control" onChange={formikDangKy.handleChange}>
+                        <option>GP01</option>
+                        <option>GP02</option>
+                        <option>GP03</option>
+                        <option>GP04</option>
+                        <option>GP05</option>
+                        <option>GP06</option>
+                        <option>GP07</option>
+                        <option>GP08</option>
+                        <option>GP09</option>
+                        <option>GP10</option>
+                        </select>
+                    </div>
+              </fieldset>
+              <button type="submit" className="btn-signup">Continue</button>
+            </form>
+          </div>
+        </div>
+      </section>
+ 
+    
     )
 }

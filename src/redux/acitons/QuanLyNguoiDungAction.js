@@ -12,7 +12,7 @@ export const dangKyAction = (thongTinDangKy) => {
 
             console.log('result: ', result);
             // taiKhoan: 'qanhkun', matKhau: 'qanhkun'}
-            if (result.status === 200) {
+            if (result?.status === 200) {
                 Swal.fire({
                     title: 'Đăng ký thành công!',
                     icon: 'success',
@@ -24,8 +24,6 @@ export const dangKyAction = (thongTinDangKy) => {
                             thongTinDangKy: result?.data?.content
                         });
                         history.push("/login");
-
-
                     }
                 })
             }
@@ -62,6 +60,11 @@ export const dangNhapAction = (thongTinDangNhap) => {
             console.log('result', result)
         } catch (error) {
             console.log('errors', error.response.data)
+            Swal.fire({
+                icon: 'error',
+                title: error.response?.data.message,
+                text: `${error.response?.data.content}`,
+            })
         }
     }
 }
@@ -80,9 +83,13 @@ export const layThongTinNguoiDungAction = (taiKhoan) => {
             console.log('result', result.data.content)
         } catch (error) {
             console.log('errors', error.response.data)
-        }
+            Swal.fire({
+                icon: 'error',
+                title: error.response?.data.message,
+                text: `${error.response?.data.content}`,
+        })
     }
-}
+}}
 
 
 
@@ -122,7 +129,7 @@ export const layDanhSachUserAction = (taiKhoan) => {
 //             } else {
 //                 const result = await qlNguoiDungService.layDanhSachUserSearch(tuKhoa);
 
-//                 if (result?.status === 200) {
+//                 if (result.status === 200) {
 //                     dispatch({
 //                         type: SET_DANH_SACH_NGUOI_DUNG,
 //                         danhSachNguoiDung: result?.data.content
