@@ -3,8 +3,10 @@ import React,{Fragment} from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { TOKEN, USER_LOGIN } from '../../../../util/settings/config';
-import {history} from './../../../../App'
-
+import {history} from './../../../../App';
+import logoBlack from './../../../../imgRap/LOGO/Logo11.png';
+import {UserOutlined} from '@ant-design/icons';
+import './Header.css';
 
 export default function Header(props) {
     const {userLogin} = useSelector(state=>state.QuanLyNguoiDungReducer)
@@ -21,7 +23,7 @@ export default function Header(props) {
         }
         return <Fragment> <button onClick={()=>{
             history.push('/profile')
-        }} className="self-center px-8 py-3 rounded">hello! {userLogin.taiKhoan}</button>
+        }} className="self-center px-8 py-3 rounded"><UserOutlined style={{ fontSize: '20px'}}/> {userLogin.taiKhoan}</button>
 
         <button onClick={()=>{
             localStorage.removeItem(USER_LOGIN);
@@ -30,25 +32,28 @@ export default function Header(props) {
             window.location.reload();
         }} className="self-center px-8 py-3 rounded">Đăng xuất</button></Fragment>
         
+        
     }
     return (
-        <header className="p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-30 bg-black text-white fixed w-screen z-10 ">
+        <header id="myP" style={{position:'fixed'}} className="p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-0 bg-black text-black fixed w-screen z-10 ">
             <div className="container flex justify-between h-16 mx-auto">
-                <NavLink to='/' aria-label="Back to homepage" className="flex items-center p-2">
-                    <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn" />
+                <div className="flex justify-center items-center  ">
+                <NavLink to='/' aria-label="Back to homepage" className="flex items-center py-2 pr-2">
+                    <img className="logo" src={logoBlack}  alt="cyberlearn.vn" />
                 </NavLink>
-                <ul className="items-stretch hidden space-x-3 lg:flex ">
-                    <li className="flex">
-                        <NavLink to="/home" href="#" className="flex items-center -mb-1 border-b-2 px-4 border-transparent text-violet-400 border-violet-400 text-white" activeClassName="border-b-2 border-white">Home</NavLink>
+                <ul className="items-stretch hidden space-x-3 lg:flex pt-1 ">
+                    <li className="flex ">
+                        <NavLink to="/home" href="#" className="flex items-center -mb-1 border-b-2 px-4 border-transparent text-violet-400 border-violet-400 text-black" activeClassName="border-b-1 border-black">Home</NavLink>
                     </li>
-                    <li className="flex">
-                        <NavLink to="/contact" href="#" className="flex items-center px-4 -mb-1 dark:border-transparent text-white" activeClassName="border-b-2 border-white">Contact</NavLink>
+                    <li className="flex ">
+                        <NavLink to="/contact" href="#" className="flex items-center px-4 -mb-1 dark:border-transparent text-black" activeClassName="border-b-1 border-black">Contact</NavLink>
                     </li>
-                    <li className="flex">
-                        <NavLink to="/news" href="#" className="flex items-center px-4 -mb-1 dark:border-transparent text-white" activeClassName="border-b-2 border-white">News</NavLink>
+                    <li className="flex ">
+                        <NavLink to="/news" href="#" className="flex items-center px-4 -mb-1 dark:border-transparent text-black" activeClassName="border-b-1 border-black">News</NavLink>
                     </li>
                     
                 </ul>
+                </div>
                 <div className="items-center flex-shrink-0 hidden lg:flex">
                     {renderLogin()}
                     

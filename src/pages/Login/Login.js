@@ -5,9 +5,10 @@ import { NavLink,Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { dangNhapAction, dangKyAction } from './../../redux/acitons/QuanLyNguoiDungAction';
 import * as yup from 'yup';
-
 import './LoginAnimation.css'
 import { GROUP_ID } from '../../util/settings/config';
+
+import logoW from './../../imgRap/LOGO/LogoR22.png'
 
 export default function Login(props) {
 
@@ -70,7 +71,7 @@ const dispatch = useDispatch()
         
         <section className="forms-section">
         <Link to="/">
-            <img className="logoLogin" src="./../../imgRap/LOGO/LogoR22.png" alt="logo" />
+            <img className="logoLogin" src={logoW} alt="logo" />
         </Link>
         <div className="forms pt-20">
           <div className={`form-wrapper ${formType === 'login' ? 'is-active' : ''}`}>

@@ -24,6 +24,7 @@ export const dangKyAction = (thongTinDangKy) => {
                             thongTinDangKy: result?.data?.content
                         });
                         history.push("/login");
+                        window.location.reload();
                     }
                 })
             }

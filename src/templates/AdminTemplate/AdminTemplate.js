@@ -4,7 +4,7 @@ import { TOKEN, USER_LOGIN } from "../../util/settings/config";
 import _ from 'lodash';
 import { useSelector } from "react-redux";
 import { history } from "../../App";
-
+import logoW from './../../imgRap/LOGO/LogoR22.png'
 import { Layout, Menu, Breadcrumb, Avatar, Select } from 'antd';
 import {
     DesktopOutlined,
@@ -77,6 +77,10 @@ export const AdminTemplate = (props) => {//path, exact, component
                 return `/admin/films`;
             case 'booked':
                 return `/admin/user`;
+            case 'showtime':
+                return `/admin/films`;
+            case 'showtime/':
+                return `/admin/films`;
             default:
                 return 'other'
         }
@@ -88,7 +92,7 @@ export const AdminTemplate = (props) => {//path, exact, component
                 <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
                     <NavLink className="navbar-brand" to="/">
                         <div className="logo p-5">
-                            <Link to="/"><img src="./../../imgRap/LOGO/LogoR2.png" alt="logo" /></Link>
+                            <Link to="/"><img src={logoW} alt="logo" /></Link>
                         </div>
                     </NavLink>
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
