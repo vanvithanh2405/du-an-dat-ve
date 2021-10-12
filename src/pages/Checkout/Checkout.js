@@ -10,7 +10,7 @@ import checkoutStyle from './Checkout.module.css';
 import './Checkout.css'
 
 // Antd
-import { UserOutlined, CloseOutlined, CheckOutlined, HomeOutlined} from '@ant-design/icons';
+import { UserOutlined, CloseOutlined, CheckOutlined, HomeOutlined } from '@ant-design/icons';
 import { Tabs, TimePicker } from 'antd';
 import { layThongTinNguoiDungAction } from '../../redux/acitons/QuanLyNguoiDungAction';
 import moment from 'moment';
@@ -190,37 +190,29 @@ const { TabPane } = Tabs;
 //     console.log(key);
 // }
 export default function (props) {
-    
-    const {tabActive} = useSelector(state=>state.QuanLyDatVeReducer);
+    // bỏ useEffect để ko chạy vòng lặp vô hạn
+    const { tabActive } = useSelector(state => state.QuanLyDatVeReducer);
     const dispatch = useDispatch();
-    console.log('tabActive',tabActive);
-    const {userLogin}=useSelector(state=>state.QuanLyNguoiDungReducer);
-    useEffect(()=>{
-        return()=>{
-            dispatch({
-                type: 'CHANGE_TAB_ACTIVE',
-                number:'1'
-            })
-        }
-    })
+    console.log('tabActive', tabActive);
+    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
     const operations = <Fragment>
-        {!_.isEmpty(userLogin) ?<Fragment> <button onClick={()=>{
+        {!_.isEmpty(userLogin) ? <Fragment> <button onClick={() => {
             history.push('./profile')
-}}><div style={{width:50,height:50,display:'flex',justifyContent:'center', alignItems:'center'}} className="text-2xl rounded-full ml-5 bg-red-200">{userLogin.taiKhoan.substr(0,1)}</div>Hello ! {userLogin.taiKhoan}</button>
-    <button onClick={()=>{
-        localStorage.removeItem(USER_LOGIN);
-        localStorage.removeItem(TOKEN);
-        history.push('/home');
-        window.location.reload();
-    }} className="text-blue-800">Đăng xuất</button> </Fragment>:''}
+        }}><div style={{ width: 50, height: 50, display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="text-2xl rounded-full ml-5 bg-red-200">{userLogin.taiKhoan.substr(0, 1)}</div>Hello ! {userLogin.taiKhoan}</button>
+            <button onClick={() => {
+                localStorage.removeItem(USER_LOGIN);
+                localStorage.removeItem(TOKEN);
+                history.push('/home');
+                window.location.reload();
+            }} className="text-blue-800">Đăng xuất</button> </Fragment> : ''}
     </Fragment>
 
-    
+
     return <div className="p-5">
-        <Tabs tabBarExtraContent={operations} defaultActiveKey="1" activeKey={tabActive} onChange={(key)=>{
+        <Tabs tabBarExtraContent={operations} defaultActiveKey="1" activeKey={tabActive} onChange={(key) => {
             dispatch({
                 type: 'CHANGE_TAB_ACTIVE',
-                number:key.toString()
+                number: key.toString()
             })
         }}>
             <TabPane tab="01 CHỌN GHẾ THANH TOÁN" key="1"  >
@@ -229,8 +221,8 @@ export default function (props) {
             <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
                 <KetQuaDatVe {...props} />
             </TabPane>
-            <TabPane tab={<div className="text-center" style={{display:'flex',justifyContent:'center', alignItems:'center'}}><NavLink to='/'><HomeOutlined style={{marginLeft:10, fontSize:25}} /></NavLink></div>} key="3">
-                
+            <TabPane tab={<NavLink to='/'><HomeOutlined style={{ marginLeft: 10, fontSize: 25 }} /></NavLink>} key="3">
+
             </TabPane>
         </Tabs>
     </div>
@@ -253,7 +245,7 @@ function KetQuaDatVe(props) {
     console.log('thongTinNguoiDung', thongTinNguoiDung)
 
     const renderTicketItem = () => {
-        
+
         return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
             const seats = _.first(ticket.danhSachGhe)
             return <div className="p-2 lg:w-1/3 md:w-1/2 w-full text-base" key={index}>
@@ -263,7 +255,7 @@ function KetQuaDatVe(props) {
                         <h2 className="text-gray-900 title-font font-medium text-xl">{ticket.tenPhim}</h2>
                         <p className="text-gray-500">Giờ chiếu: {moment(ticket.ngayDat).format('HH:MM')} - Ngày Chiếu: {moment(ticket.ngayDat).format('DD-MM-YYYY')} </p>
                         <span>Địa điểm: {seats.tenHeThongRap} - {seats.tenRap}</span>
-                        <p>Ghế: {ticket.danhSachGhe.map((ghe,index)=>{
+                        <p>Ghế: {ticket.danhSachGhe.map((ghe, index) => {
                             return <span key={index} className="mr-2">[{ghe.tenGhe}]</span>
                         })}</p>
                     </div>

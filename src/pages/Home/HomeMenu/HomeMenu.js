@@ -18,7 +18,7 @@ export default function HomeMenu(props) {
                 <Tabs tabPosition={tabPosition}>
                     {heThongRap.lstCumRap.slice(0,5).map((cumRap, index) => {
                         return <TabPane tab={
-                            <div style={{ width: '320px' }} className="flex align-middle justify-items-center">
+                            <div style={{ width: '400px' }} className="flex align-middle justify-items-center">
                                 <img src={cumRap.hinhAnh} style={{ width: 60 , height:60 }} />
                                 <div className="text-left ml-2 font-semibold">
                                     {cumRap.tenCumRap}
@@ -35,16 +35,16 @@ export default function HomeMenu(props) {
                             {/* Load phim tương ứng  */}
                             {cumRap.danhSachPhim.slice(0,2).map((phim, index) => {
                                 return <Fragment key={index}>
-                                    <div>
+                                    <div className="my-auto">
                                         <div style={{ display: 'flex' }} className="mb-5">
-                                            <img style={{ height: 80, width: 90 }} src={phim.hinhAnh} alt={phim.hinhAnh} />
+                                            <img style={{ height: 120, width: 90 }} src={phim.hinhAnh} alt={phim.hinhAnh} />
                                             <div className="ml-10">
                                                 <h2 className=" text-2xl font-semibold ">{phim.tenPhim}</h2>
-                                                <p className="text-xs">120 phút - 8.0 IMDb - 2D/Digital</p>
+                                                <p className="text-xs font-base">120 phút - 8.0 IMDb - 2D/Digital</p>
                                                 <div className="grid grid-cols-5 gap-3">
                                                     {phim.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
                                                         return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
-                                                            <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
+                                                            <button className="bg-gray-300 hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-1 px-4 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
                                                         </NavLink>
                                                     })}
                                                 </div>

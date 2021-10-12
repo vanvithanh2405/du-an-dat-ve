@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import Slider from "react-slick";
@@ -6,7 +6,7 @@ import { SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU } from "../../redux/types/QuanL
 import FilmFlip from "../Film/FilmFlip/FilmFlip";
 // Css MultipleRowSlick
 import styleSlick from './MultipleRowSlick.module.css';
-
+import './MultipleRowSlick.css';
 
 
 
@@ -40,30 +40,35 @@ function SamplePrevArrow(props) {
 
 const MultipleRows = (props) => {
 
+
+  const [phimDangChieu, setPhimDangChieu] = useState(true);
+  const [phimSapChieu, setPhimSapChieu] = useState(false);
+
   const { dangChieu, sapChieu } = useSelector(state => state.QuanLyPhimReducer)
   const dispatch = useDispatch();
 
   const renderFilm = () => {
-    return props.arrFilm.slice(0, 12).map((item, index) => {
+    return props.arrFilm.slice(0, 10).map((item, index) => {
       return <div className="mt-2" key={index}>
         <FilmFlip item={item} />
       </div>
     })
   }
 
-  let activeClassDC = dangChieu === true ? 'active_Film' : 'none_active_Film';
+  // let activeClassDC = dangChieu === true ? 'active_Film' : 'none_active_Film';
 
-  let activeClassSC = sapChieu === true ? 'active_Film' : 'none_active_Film';
+  // let activeClassSC = sapChieu === true ? 'active_Film' : 'none_active_Film';
 
 
   const settings = {
     className: "center variable-width",
     centerMode: true,
     infinite: true,
-    centerPadding: "60px",
+    centerPadding: "10px",
     slidesToShow: 2,
+    autoplay: true,
     speed: 500,
-    rows: 2,
+    rows: 1,
     slidesPerRow: 2,
     variableWidth: true,
     nextArrow: <SampleNextArrow />,
@@ -71,15 +76,19 @@ const MultipleRows = (props) => {
   };
 
   return (
-    <div className="text-center ">
-      <button type="button" className={`${styleSlick[activeClassDC]} px-8 py-3 font-semibold rounded  border-gray-800 border mr-2`} onClick={() => {
+    <div className="text-left ">
+      <button type="button" className= {phimDangChieu ? `active_Film` : `none_active_Film`} onClick={() => {
         const action = { type: SET_FILM_DANG_CHIEU }
         dispatch(action);
-      }}>Đang Chiếu</button>
-      <button type="button" className={`${styleSlick[activeClassSC]} px-8 py-3 font-semibold rounded  border-gray-800 border`} onClick={() => {
+        setPhimDangChieu(true);
+        setPhimSapChieu(false);
+      }}>Phim Đang Chiếu</button>
+      <button type="button" className={!phimSapChieu ? `none_active_Film` : `active_Film`} onClick={() => {
         const action = { type: SET_FILM_SAP_CHIEU }
         dispatch(action);
-      }}>Sắp Chiếu</button>
+        setPhimSapChieu(true);
+        setPhimDangChieu(false);
+      }}>Phim Sắp Chiếu</button>
       <Slider {...settings}>
         {renderFilm()}
       </Slider>

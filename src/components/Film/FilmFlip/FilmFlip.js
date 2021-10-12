@@ -22,16 +22,17 @@ export default function FilmFlip(props) {
                     <div className="w-full h-full" style={{ position: 'absolute', backgroundColor: 'rgba(0,0,0,.5)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <div className="rounded-lg">
                             <div className="rounded-full cursor-pointer" ><PlayCircleOutlined style={{ fontSize: '50px' }} /> </div>
-                            <div className="text-2xl mt-2 font-bold">{item.tenPhim}</div>
-                            <div className="text-sm mt-2">{item.moTa.length > 100 ? <span>{item.moTa.slice(0, 100)} ...</span> : <span>{item.moTa}</span>}</div>
+                            <div className="bg-white">
+                                <div className="text-2xl mt-2 font-bold text-black">{item.tenPhim}</div>
+                                <div onClick={() => {
+                                    history.push(`/detail/${item.maPhim}`);
+                                }} className="  bg-orange-300 text-center cursor-pointer py-2.5  bg-red-300 my-2.5 text-success-50 font-bold rounded-lg">
+                                    Đặt Vé
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div onClick={() => {
-                history.push(`/detail/${item.maPhim}`);
-            }} className="  bg-orange-300 text-center cursor-pointer py-2.5  bg-red-300 my-2.5 text-success-50 font-bold rounded-lg">
-                Đặt Vé
             </div>
 
         </div>

@@ -19,7 +19,7 @@ export const HomeTemplate = (props) => {
             </div>
 
             <hr className="mt-10" />
-            <Footer  />
+            <Footer id="footer"/>
 
         </Fragment>
     }} />

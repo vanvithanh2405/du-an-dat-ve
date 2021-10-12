@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { CustomCard } from '@tsamantanis/react-glassmorphism'
 import { Rate } from 'antd';
+import { LikeOutlined, CommentOutlined, UserOutlined } from '@ant-design/icons';
 import '@tsamantanis/react-glassmorphism/dist/index.css'
 import '../../assets/styles/circlePercent.scss'
 import './Detail.css'
@@ -11,6 +12,7 @@ import { Tabs, Radio, Space } from 'antd';
 import { layThongTinChiTietPhim } from '../../redux/acitons/QuanLyRapAction';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom';
+import { slice } from 'lodash';
 
 const { TabPane } = Tabs;
 export default function Detail(props) {
@@ -85,9 +87,9 @@ export default function Detail(props) {
                                                         </div>
                                                     </div>
                                                     <div className="thong_tin_lich_chieu grid grid-cols-9 gap-3">
-                                                        {cumRap.lichChieuPhim?.map((lichChieu, index) => {
+                                                        {cumRap.lichChieuPhim?.slice(0, 8).map((lichChieu, index) => {
                                                             return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className="col-span-1 ">
-                                                                <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
+                                                                <button className="bg-gray-300 hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-1 px-4 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
                                                             </NavLink>
                                                         })}
 
@@ -102,8 +104,10 @@ export default function Detail(props) {
                         <TabPane className="tab_header" tab="Thông tin" key="2">
                             Content of Tab Pane 2
                         </TabPane>
+
                         <TabPane className="tab_header" tab="Đánh giá" key="3">
                             Content of Tab Pane 3
+
                         </TabPane>
                     </Tabs>
                 </div>

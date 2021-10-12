@@ -72,13 +72,13 @@ export const dangNhapAction = (thongTinDangNhap) => {
 
 export const layThongTinNguoiDungAction = (taiKhoan) => {
 
-
+    // sửa lại lấy thông tin người dùng action mới hiện ra được lịch sử đặt vé
     return async(dispatch) => {
         try {
-            const result = await qlNguoiDungService.layThongTinUserTheoTaiKhoan(taiKhoan);
+            const result = await qlNguoiDungService.layThongTinNguoiDung(taiKhoan);
             dispatch({
-                type: SET_THONG_TIN_NGUOI_DUNG_THEO_TAI_KHOAN,
-                thongTinNguoiDungTheoTaiKhoan: result?.data.content
+                type: SET_THONG_TIN_NGUOI_DUNG,
+                thongTinNguoiDung: result?.data.content
             })
 
             console.log('result', result.data.content)
