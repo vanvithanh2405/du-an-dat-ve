@@ -1,6 +1,11 @@
 import { Fragment, useEffect } from "react";
 import { Redirect, Route } from "react-router";
 import { USER_LOGIN } from "../../util/settings/config";
+import Header from "./../HomeTemplate/Layout/Header/Header";
+import Footer from "./../HomeTemplate/Layout/Footer/Footer";
+
+
+
 
 
 
@@ -16,7 +21,13 @@ const CheckoutTemplate = (props) => {
     return <Route {...restRoute} render={(propsRoute) => { //props.location,props.history.props.match
 
         return <Fragment>
+            <Header {...propsRoute} />
+
             <Component {...propsRoute} />
+
+            <Footer  />
+
+
         </Fragment>
     }} />
 }

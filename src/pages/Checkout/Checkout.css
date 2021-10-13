@@ -1,7 +1,69 @@
+.layoutCSS {
+    background-color: #E5E5E5;
+    clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0% 100%);
+    width: 100%;
+    height: 1300px;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+}
+
+.layoutCon {
+    position: absolute;
+    top: 100px;
+    /* padding: 2rem !important; */
+    padding-left: 2rem !important;
+    padding-right: 2rem;
+    /* background-color: #fff; */
+}
+
+.info_Rap{
+    background: white;
+    /* width: 70%; */
+    display: flex;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px 4px rgb(0 0 0 / 34%);
+
+    
+}
+
+
+/* .ant-tabs>.ant-tabs-nav .ant-tabs-nav-wrap,
+.ant-tabs>div>.ant-tabs-nav .ant-tabs-nav-wrap .layoutCon {
+    position: relative;
+    display: inline-block;
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.ant-tabs-top > .ant-tabs-nav::before, .ant-tabs-top > div > .ant-tabs-nav::before .layoutCon{
+    border: 0;
+} */
+
+.layout_Rap {
+    background-color: #0F052F;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.layout_Bill {
+    background-color: #fff;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .ghe {
     /* ghế thường */
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -13,19 +75,24 @@
 .gheDaDat {
     background-color: rgb(232, 76, 76);
     cursor: no-drop;
+    /* background: url("/imgRap/RAP-GHE/ghedadat.png"); */
 }
 
 .gheDangDat {
-    background-color: rgb(18, 176, 18) !important;
+    background-color: #DBF66C !important;
+    color: #000;
+    /* background-image: "url(/imgRap/RAP-GHE/ghedangchon.png)"; */
 }
 
 .gheVip {
-    background-color: rgb(228, 74, 8);
+    background-color: #FE0000;
+    /* background-image: 'url(/imgRap/RAP-GHE/ghedamua.png)'; */
 }
 
 .gheDaDuocDat {
     /*ghế được chính mình đặt */
-    background-color: rgb(246, 246, 246);
+    background-color: #ffffff;
+    /* background-image: 'url(/imgRap/RAP-GHE/ghedamua.png)'; */
     -webkit-box-shadow: -1px 2px 18px -6px orange;
     box-shadow: -1px 2px 18px -6px orange;
     color: orange !important;

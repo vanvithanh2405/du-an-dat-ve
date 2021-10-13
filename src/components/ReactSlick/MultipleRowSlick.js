@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons';
 import Slider from "react-slick";
 import { SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU } from "../../redux/types/QuanLyPhimType";
 import FilmFlip from "../Film/FilmFlip/FilmFlip";
@@ -64,9 +64,8 @@ const MultipleRows = (props) => {
     className: "center variable-width",
     centerMode: true,
     infinite: true,
-    centerPadding: "10px",
+    centerPadding: "-40px",
     slidesToShow: 2,
-    autoplay: true,
     speed: 500,
     rows: 1,
     slidesPerRow: 2,

@@ -75,7 +75,7 @@ export default function HomeCarousel(props) {
                     <img src={img2} className="opacity-1 w-full h-full" alt={img2} />
             </div>
             <div style={{contentStyle}}>
-                    <img src={img3} className="opacity-1 w-full h-full" alt={img3} />
+                    <img src={img3} className="opacity-1 w-full h-full"alt={img3} />
             </div>
             <div style={{contentStyle}}>
                     <img src={img4} className="opacity-1 w-full h-full" alt={img4} />

@@ -18,6 +18,12 @@ import { NavLink } from 'react-router-dom';
 import { history } from '../../App';
 import { TOKEN, USER_LOGIN } from '../../util/settings/config';
 
+//ghe
+// import gheDaDat from './../../imgRap/RAP-GHE/ghedadat.png';
+// import gheChuaDat from './../../imgRap/RAP-GHE/ghechuadat.png';
+// import gheDaMua from './../../imgRap/RAP-GHE/ghedamua.png';
+// import gheDangChon from './../../imgRap/RAP-GHE/ghedangchon.png';
+
 
 
 
@@ -74,7 +80,7 @@ function Checkout(props) {
                         gheDuocChon: ghe
                     })
                 }} disabled={ghe.daDat} className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat} text-center `} key={index}>
-                    {ghe.daDat ? classGheDaDuocDat != '' ? <UserOutlined style={{ marginBottom: 5.5 }} /> : <CloseOutlined style={{ marginBottom: 5.5 }} /> : ghe.stt}
+                    {ghe.daDat ? classGheDaDuocDat != '' ? <UserOutlined style={{ marginBottom: 0 }} /> : <CloseOutlined style={{ marginBottom: 0 }} /> : ghe.stt}
                 </button>
 
 
@@ -84,18 +90,28 @@ function Checkout(props) {
         })
     }
     return (
-        <div className="container-fluid min-h-screen">
+        <div className="container-fluid min-h-screen ">
+        <div className="grid grid-cols-12 mt-2 mb-5">
+         <div className="col-span-2"></div>
+         <div className="info_Rap col-span-8">
+         
+         <div><p className="mb-0"><span className="font-semibold">Địa điểm: </span>{thongTinPhim.tenCumRap}</p></div>
+         <div><p className="mb-0"><span className="font-semibold">Phim: </span> {thongTinPhim.tenPhim}</p></div>
+         <div><p className="mb-0"><span className="font-semibold">Ngày chiếu: </span> {thongTinPhim.ngayChieu}</p></div>
+         </div>
+         <div className="col-span-2"></div>
+
+        </div>
             <div className="grid grid-cols-12">
-                <div className="col-span-9">
+                <div className="col-span-9 layout_Rap">
                     <div className="flex flex-col items-center mt-5">
 
-                        <div className="bg-black" style={{ width: '80%', height: 15 }}>
-
+                        <div className="bg-white" style={{ width: '80%', height: 15 }}>
                         </div>
-                        <div className={`${checkoutStyle['trapezoid']}`}></div>
-
-                        <div className={`${checkoutStyle['manHinh']} text-base`}>
-                            <h3>Màn hình</h3>
+                        <div className={`${checkoutStyle['trapezoid']}`}>
+                        </div>
+                        <div className={`${checkoutStyle['manHinh']}`}>
+                            <h3 className="font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-green-100 to-gray300  ">Screen</h3>
                         </div>
                         <div>
                             {renderSeats()}
@@ -125,16 +141,11 @@ function Checkout(props) {
                         </table>
                     </div>
                 </div>
-                <div className="col-span-3">
-                    <h3 className="text-center text-2xl text-green-400">
-                        {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
-                            return tongTien += ghe.giaVe;
-                        }, 0).toLocaleString()} <span>VND</span>
-                    </h3>
+                <div className="col-span-3 layout_Bill">
+                    <h3 className="text-2xl my-3 text-center pt-4">{thongTinPhim.tenPhim}</h3>
                     <hr />
-                    <h3 className="text-2xl my-3">{thongTinPhim.tenPhim}</h3>
-                    <p className="text-base">Địa điểm: {thongTinPhim.tenCumRap}</p>
-                    <p className="text-base">Ngày chiếu : <span className="font-semibold">{thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu} - {thongTinPhim.tenRap}</span></p>
+                    <p className="text-base pt-3">Địa điểm: {thongTinPhim.tenCumRap} - {thongTinPhim.tenRap}</p>
+                    <p className="text-base">Ngày chiếu : <span className="font-semibold">{thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu}</span></p>
                     <hr />
                     <div className="grid grid-cols-2 my-3">
                         <div>
@@ -152,15 +163,25 @@ function Checkout(props) {
                         </div>
                     </div>
                     <hr />
+                    <h5 className="pt-3 text-xl text-center">Thông tin người đặt</h5>
+
                     <div className="text-lg my-3">
-                        <i>Email: </i> <br />
-                        {userLogin.email}
+                        <i>Email: </i>
+                        {userLogin.email.length > 15 ? userLogin.email.substr(0, 15) + '...' : userLogin.email}
+
                     </div>
                     <div className="text-lg my-3">
-                        <i>Phone: </i> <br />
-                        {userLogin.soDT}
+                        <i>Phone: </i>
+                        {userLogin.soDT.length > 15 ? userLogin.soDT.substr(0, 15) + '...' : userLogin.soDT}
+
                     </div>
                     <hr />
+                    <h5 className="pt-3 text-xl">Thành Tiền:</h5>
+                    <h4 className="text-center text-2xl text-green-400">
+                        {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
+                            return tongTien += ghe.giaVe;
+                        }, 0).toLocaleString()} <span>VND</span>
+                    </h4>
                     <div className="mb-0 h-full flex flex-col items-center" style={{ marginBottom: 0 }} >
                         <div onClick={() => {
                             const thongTinDatVe = new ThongTinDatVe();
@@ -171,15 +192,13 @@ function Checkout(props) {
                             const action = DatVeAction(thongTinDatVe);
                             dispatch(action)
 
-                        }} className="bg-green-400 hover:bg-green-600 text-white w-full text-center py-3 font-semibold text-lg cursor-pointer">
+                        }} className="bg-gray-400 hover:bg-gray-800 text-white w-3/4 text-center py-3 font-semibold text-lg cursor-pointer">
                             ĐẶT VÉ
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
     )
 }
 

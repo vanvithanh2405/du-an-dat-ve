@@ -3,12 +3,12 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { CustomCard } from '@tsamantanis/react-glassmorphism'
 import { Rate } from 'antd';
-import { LikeOutlined, CommentOutlined, UserOutlined } from '@ant-design/icons';
+import { LikeOutlined, CommentOutlined, UserOutlined,CaretRightOutlined } from '@ant-design/icons';
 import '@tsamantanis/react-glassmorphism/dist/index.css'
 import '../../assets/styles/circlePercent.scss'
 import './Detail.css'
 // Tabs
-import { Tabs, Radio, Space } from 'antd';
+import { Tabs } from 'antd';
 import { layThongTinChiTietPhim } from '../../redux/acitons/QuanLyRapAction';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom';
@@ -30,42 +30,52 @@ export default function Detail(props) {
 
 
     return (
-        <div style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+        // <div style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+        <div>
+            <div className="backgroundDetail"></div>
             <CustomCard
-                style={{ paddingTop: 150, minHeight: '100vh' }}
-                effectColor="#fff" // required
-                color="#fff" // default color is white
-                blur={10} // default blur value is 10px
+                className="detailFilm"
+                style={{  minHeight: '100vh'}}
+                effectColor="rgba(0, 0, 0,0)" // required
+                
+                color="#000" // default color is white
+                blur={0} // default blur value is 10px
                 borderRadius={0} // default border radius value is 10px
             >
                 <div className="grid grid-cols-12">
-                    <div className="col-span-5 col-start-3">
-                        <div className="grid grid-cols-3">
-                            <img className="col-span-1" src={filmDetail.hinhAnh} style={{ width: 200, height: 350 }} alt={filmDetail.hinhAnh} />
-                            <div className="col-span-2" style={{ marginTop: '30%' }}>
-                                <p className="text-sm">Ngày chiếu: {moment(filmDetail.ngayKhoiChieu).format('DD/MM/YYYY')}</p>
-                                <p className="text-3xl leading-3 font-semibold">{filmDetail.tenPhim}</p>
-                                <p>Mô tả: {filmDetail.moTa}</p>
+                    <div className="col-span-2"></div>
+                    <div className="col-span-6 col-start-3">
+                        <div className="grid grid-cols-6 infoDetail">
+                            <div className="afterImg col-span-2">
+                                <img className=" imgDetail" src={filmDetail.hinhAnh} alt={filmDetail.hinhAnh} />
+                                <div className="afterImg1"><CaretRightOutlined className="playIcon" /></div>
+                            </div>
+                            <div className="col-span-4">
+                                <p className="text-3xl leading-3 font-semibold pt-3 tenFilm">{filmDetail.tenPhim}</p>
+                                <p className="text-sm"><span  className="font-semibold">Ngày chiếu: </span>{moment(filmDetail.ngayKhoiChieu).format('DD/MM/YYYY')}</p>
+                                <p><span className="font-semibold">Mô tả: </span>{filmDetail.moTa}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="col-span-4" style={{ marginLeft: '14rem' }}>
-                        <h1 style={{ marginLeft: '18%' }} className="text-2xl text-white font-semibold">Đánh giá</h1>
-                        <h1 style={{ marginLeft: '14%' }} className="text-2xl font-semibold text-yellow-600"><Rate allowHalf value={filmDetail.danhGia / 2} style={{ color: '#e08833' }} /></h1>
-                        <div className={`c100 p${filmDetail.danhGia * 10} big orange`}>
-                            <span>{filmDetail.danhGia * 10}%</span>
+                    <div className="col-span-2  text-center rateFilm">
+                        <h1 className="text-2xl text-white font-semibold">Đánh giá</h1>
+                        <h1 className="text-2xl font-semibold text-yellow-600"><Rate allowHalf value={filmDetail.danhGia / 2} style={{ color: '#3d3d3d' }} /></h1>
+                        <div className={`c100 p${filmDetail.danhGia * 10} trungBinh black dark` }>
+                            <span className="text-white">{filmDetail.danhGia * 10}%</span>
                             <div className="slice">
                                 <div className="bar" />
                                 <div className="fill" />
                             </div>
                         </div>
                     </div>
+                    <div className="col-span-2"></div>
+
                 </div>
 
 
-                <div className="mt-10 ml-72 w-2/3 container px-5 py-5 bg-white">
-                    <Tabs defaultActiveKey="1" centered>
+                <div className="mt-10 container bg-white" id="tabsFilm">
+                    <Tabs defaultActiveKey="1" className="mt-10 "  centered>
                         <TabPane className="tab_header" tab="Lịch chiếu" key="1" style={{ minHeight: 300 }}>
                             <div >
                                 <Tabs tabPosition={'left'}>

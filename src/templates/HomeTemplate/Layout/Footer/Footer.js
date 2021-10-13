@@ -3,6 +3,7 @@ import _ from 'lodash'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { SendOutlined } from '@ant-design/icons';
+import logoWhite from './../../../../imgRap/LOGO/LogoR2-mini.png'
 
 import './Footer.css'
 export default function Footer() {
@@ -21,40 +22,43 @@ export default function Footer() {
                     <div className="lg:w-1/3">
                         <a href="#home" className="flex justify-center space-x-3 lg:justify-start">
                             <span className="self-center text-2xl font-semibold">
-                                <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn" />
+                                <img src={logoWhite} alt="cyberlearn.vn" />
                             </span>
                         </a>
                     </div>
                     <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 w-2/3 grid-cols-4">
                         <div className="space-y-3">
-                            <h3 className="tracking-wide uppercase text-gray-50 text-lg font-semibold">Product</h3>
+                            <h3 className="tracking-wide uppercase text-gray-50 text-lg font-semibold">our production</h3>
                             <ul className="space-y-1 ">
                                 <li>
-                                    <a href="#" className="text-white">Features</a>
+                                    <a href="#" className="text-white">About Edge</a>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-white">Integrations</a>
+                                    <a href="#" className="text-white">Latest Videos</a>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-white">Pricing</a>
+                                    <a href="#" className="text-white">Studio Tour</a>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-white">FAQ</a>
+                                    <a href="#" className="text-white">Press & News</a>
+                                </li>
+                                <li>
+                                    <a href="#" className="text-white">Help (FAQ)</a>
                                 </li>
                             </ul>
                         </div>
                         <div className="space-y-3">
                             <h3 className="tracking-wide uppercase text-gray-50 text-lg font-semibold">Company</h3>
-                            <div className=" grid grid-cols-3  space-y-1">
+                            <a className=" grid grid-cols-3  space-y-1">
                                 {arrHeThongRap.map((hThongRap, index) => {
                                     return <div key={index}>
                                         <img src={hThongRap.logo} style={{ width: '35px' }} />
                                     </div>
                                 })}
-                            </div>
+                            </a>
                         </div>
                         <div className="space-y-3">
-                            <h3 className="uppercase text-gray-50 text-lg font-semibold">Developers</h3>
+                            <h3 className="uppercase text-gray-50 text-lg font-semibold">About</h3>
                             <ul className="space-y-1">
                                 <li>
                                     <a href="#" className="text-white" >Public API</a>
