@@ -87,7 +87,7 @@ export default function Detail(props) {
                                                 </div>
                                             </div>}
                                             key={index}>
-                                            {hThongRap.cumRapChieu?.map((cumRap, index) => {
+                                            {hThongRap.cumRapChieu?.slice(0,3).map((cumRap, index) => {
                                                 return <div className="mt-10" key={index}>
                                                     <div className="flex">
                                                         <img style={{ width: 50, height: 50 }} src={cumRap.hinhAnh} />

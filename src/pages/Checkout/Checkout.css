@@ -48,8 +48,8 @@
 
 .layout_Rap {
     background-color: #0F052F;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
+    border-radius: 20px;
+    margin-right: 30px;
 }
 
 .layout_Bill {
