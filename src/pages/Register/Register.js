@@ -66,7 +66,7 @@ const formikDangKy =  useFormik({
                         
                     </div>
                     <div className="form-group">
-                        <label>Số diện thoại{formikDangKy.errors.soDt && formikDangKy.touched.soDt ? (<span style={{ color: 'red' }}><span className="text-black">:</span> {formikDangKy.errors.soDt} </span>) : null}</label>
+                        <label>Số điện thoại{formikDangKy.errors.soDt && formikDangKy.touched.soDt ? (<span style={{ color: 'red' }}><span className="text-black">:</span> {formikDangKy.errors.soDt} </span>) : null}</label>
                         <input name="soDt" type="text" className="form-control" onChange={formikDangKy.handleChange}/>
                         
 

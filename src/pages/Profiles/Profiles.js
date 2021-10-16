@@ -69,7 +69,7 @@ export default function Profiles(props) {
                         </div>
                     </div>
                     <hr className="mx-4 mt-4" />
-                    <h1 className="text-2xl my-4 text-center">Lịch sữ đặt vé </h1>
+                    <h1 className="text-3xl my-4 text-center font-semibold">LỊCH SỬ ĐẶT VÉ </h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-l text-center"><i> Hãy xem thông tin địa chỉ, suất chiếu và thời gian để trải nghiệm phim một cách tốt nhất nhé !</i></p>
 
                     <div className=" mx-4 overscroll-auto overflow-auto h-40 scrollBar">
