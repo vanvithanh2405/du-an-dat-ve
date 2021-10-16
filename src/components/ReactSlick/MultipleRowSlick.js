@@ -1,9 +1,10 @@
-import React, { Component, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux'
-import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons';
+import React, {useState } from "react";
+import { useDispatch } from 'react-redux'
+// import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons';
 import Slider from "react-slick";
 import { SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU } from "../../redux/types/QuanLyPhimType";
-import FilmFlip from "../Film/FilmFlip/FilmFlip";
+// import FilmFlip from "../Film/FilmFlip/FilmFlip";
+
 // Css MultipleRowSlick
 import styleSlick from './MultipleRowSlick.module.css';
 import './MultipleRowSlick.css';
@@ -45,7 +46,7 @@ const MultipleRows = (props) => {
   const [phimDangChieu, setPhimDangChieu] = useState(true);
   const [phimSapChieu, setPhimSapChieu] = useState(false);
 
-  const { dangChieu, sapChieu } = useSelector(state => state.QuanLyPhimReducer)
+  // const { dangChieu, sapChieu } = useSelector(state => state.QuanLyPhimReducer)
   const dispatch = useDispatch();
 
   const renderFilm = () => {
