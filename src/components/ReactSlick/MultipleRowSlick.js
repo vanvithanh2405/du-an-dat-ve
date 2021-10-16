@@ -7,6 +7,7 @@ import FilmFlip from "../Film/FilmFlip/FilmFlip";
 // Css MultipleRowSlick
 import styleSlick from './MultipleRowSlick.module.css';
 import './MultipleRowSlick.css';
+import Film from "../Film/Film";
 
 
 
@@ -48,9 +49,11 @@ const MultipleRows = (props) => {
   const dispatch = useDispatch();
 
   const renderFilm = () => {
-    return props.arrFilm.slice(0, 10).map((item, index) => {
+    return props.arrFilm.slice(0,16).map((item, index) => {
       return <div className="mt-2" key={index}>
-        <FilmFlip item={item} />
+        {/* <FilmFlip item={item} /> */}
+        <Film item={item}/>
+        
       </div>
     })
   }
@@ -64,10 +67,10 @@ const MultipleRows = (props) => {
     className: "center variable-width",
     centerMode: true,
     infinite: true,
-    centerPadding: "-40px",
+    centerPadding: "0px",
     slidesToShow: 2,
     speed: 500,
-    rows: 1,
+    rows: 2,
     slidesPerRow: 2,
     variableWidth: true,
     nextArrow: <SampleNextArrow />,
@@ -75,7 +78,7 @@ const MultipleRows = (props) => {
   };
 
   return (
-    <div className="text-left ">
+    <div className="text-left backgroundFilm">
       <button type="button" className= {phimDangChieu ? `active_Film` : `none_active_Film`} onClick={() => {
         const action = { type: SET_FILM_DANG_CHIEU }
         dispatch(action);

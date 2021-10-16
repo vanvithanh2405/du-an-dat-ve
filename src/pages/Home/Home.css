@@ -1,0 +1,11 @@
+.cumRapcss{
+    margin: 8rem auto;
+    width: 60%;
+    max-width: 100rem;
+    /* border: 1px solid black; */
+    border: 1px solid #ebebec;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    box-shadow: 2px 2px 15px 4px rgb(0 0 0 / 30%);
+    
+}

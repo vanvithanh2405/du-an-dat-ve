@@ -6,6 +6,7 @@ import { TOKEN, USER_LOGIN } from '../../../../util/settings/config';
 import { history } from './../../../../App';
 import logoBlack from './../../../../imgRap/LOGO/Logo11.png';
 import { UserOutlined } from '@ant-design/icons';
+
 import './Header.css';
 
 export default function Header(props) {
@@ -44,13 +45,15 @@ export default function Header(props) {
                     </NavLink>
                     <ul className="items-stretch hidden space-x-3 lg:flex pt-1 ">
                         <li className="flex ">
-                            <NavLink to="/home" href="#" className="flex items-center -mb-1 border-b-2 px-4 border-transparent text-violet-400 border-violet-400 text-black" activeClassName="border-b-1 border-black font-bold">Home</NavLink>
+                            <a href="#" className="flex items-center -mb-1 border-b-2 px-4 border-transparent text-violet-400 border-violet-400 text-black font-semibold" activeClassName="border-b-1 border-black font-bold" onClick={()=>{
+                                history.push(`/`)
+                            }}>Trang chủ</a>
                         </li>
                         <li className="flex ">
-                            <a href="#footer" className="flex items-center px-4 -mb-1 dark:border-transparent text-black" activeClassName="border-b-1 border-black font-bold">Contact</a>
+                            <a href="#lichChieu" className="flex items-center px-4 -mb-1 dark:border-transparent text-black font-semibold" activeClassName="border-b-1 border-black font-bold">Lịch chiếu</a>
                         </li>
                         <li className="flex ">
-                            <a href="#news" className="flex items-center px-4 -mb-1 dark:border-transparent text-black" activeClassName="border-b-1 border-black font-bold">News</a>
+                            <a href="#cumRap" className="flex items-center px-4 -mb-1 dark:border-transparent text-black font-semibold" activeClassName="border-b-1 border-black font-bold">Cụm rạp</a>
                         </li>
 
                     </ul>

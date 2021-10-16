@@ -18,17 +18,6 @@ import { NavLink } from 'react-router-dom';
 import { history } from '../../App';
 import { TOKEN, USER_LOGIN } from '../../util/settings/config';
 
-//ghe
-// import gheDaDat from './../../imgRap/RAP-GHE/ghedadat.png';
-// import gheChuaDat from './../../imgRap/RAP-GHE/ghechuadat.png';
-// import gheDaMua from './../../imgRap/RAP-GHE/ghedamua.png';
-// import gheDangChon from './../../imgRap/RAP-GHE/ghedangchon.png';
-
-
-
-
-
-
 
 function Checkout(props) {
 
@@ -90,18 +79,18 @@ function Checkout(props) {
         })
     }
     return (
-        <div className="container-fluid min-h-screen ">
-        <div className="grid grid-cols-12 mt-2 mb-5">
-         <div className="col-span-2"></div>
-         <div className="info_Rap col-span-8">
-         
-         <div><p className="mb-0"><span className="font-semibold">Địa điểm: </span>{thongTinPhim.tenCumRap}</p></div>
-         <div><p className="mb-0"><span className="font-semibold">Phim: </span> {thongTinPhim.tenPhim}</p></div>
-         <div><p className="mb-0"><span className="font-semibold">Ngày chiếu: </span> {thongTinPhim.ngayChieu}</p></div>
-         </div>
-         <div className="col-span-2"></div>
+        <div className="container-fluid min-h-screen">
+            <div className="grid grid-cols-12 mt-2 mb-5">
+                <div className="col-span-2"></div>
+                <div className="info_Rap col-span-8">
 
-        </div>
+                    <div><p className="mb-0"><span className="font-semibold">Địa điểm: </span>{thongTinPhim.tenCumRap}</p></div>
+                    <div><p className="mb-0"><span className="font-semibold">Phim: </span> {thongTinPhim.tenPhim}</p></div>
+                    <div><p className="mb-0"><span className="font-semibold">Ngày chiếu: </span> {thongTinPhim.ngayChieu}</p></div>
+                </div>
+                <div className="col-span-2"></div>
+
+            </div>
             <div className="grid grid-cols-12">
                 <div className="col-span-9 layout_Rap">
                     <div className="flex flex-col items-center mt-5">
@@ -111,7 +100,7 @@ function Checkout(props) {
                         <div className={`${checkoutStyle['trapezoid']}`}>
                         </div>
                         <div className={`${checkoutStyle['manHinh']}`}>
-                            <h3 className="font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-green-100 to-gray300  ">Screen</h3>
+                            <h3 className="font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-green-100 to-gray300 ">Screen</h3>
                         </div>
                         <div>
                             {renderSeats()}
@@ -144,7 +133,7 @@ function Checkout(props) {
                 <div className="col-span-3 layout_Bill">
                     <h3 className="text-2xl my-3 text-center pt-4">{thongTinPhim.tenPhim}</h3>
                     <hr />
-                    <p className="text-base pt-3">Địa điểm: {thongTinPhim.tenCumRap} - {thongTinPhim.tenRap}</p>
+                    <p className="text-base pt-3">Địa điểm: <span className="font-semibold">{thongTinPhim.tenCumRap} - {thongTinPhim.tenRap}</span></p>
                     <p className="text-base">Ngày chiếu : <span className="font-semibold">{thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu}</span></p>
                     <hr />
                     <div className="grid grid-cols-2 my-3">
@@ -192,7 +181,7 @@ function Checkout(props) {
                             const action = DatVeAction(thongTinDatVe);
                             dispatch(action)
 
-                        }} className="bg-gray-400 hover:bg-gray-800 text-white w-3/4 text-center py-3 font-semibold text-lg cursor-pointer">
+                        }} className="bg-gray-600 hover:bg-gray-800 text-white w-3/4 text-center py-3 font-semibold text-lg cursor-pointer">
                             ĐẶT VÉ
                         </div>
                     </div>
@@ -203,98 +192,23 @@ function Checkout(props) {
 }
 
 
-const { TabPane } = Tabs;
+
 
 // function callback(key) {
 //     console.log(key);
 // }
 export default function (props) {
-    // bỏ useEffect để ko chạy vòng lặp vô hạn
-    const { tabActive } = useSelector(state => state.QuanLyDatVeReducer);
-    const dispatch = useDispatch();
-    console.log('tabActive', tabActive);
-    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
-    const operations = <Fragment>
-        {!_.isEmpty(userLogin) ? <Fragment> <button onClick={() => {
-            history.push('./profile')
-        }}><div style={{ width: 50, height: 50, display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="text-2xl rounded-full ml-5 bg-red-200">{userLogin.taiKhoan.substr(0, 1)}</div>Hello ! {userLogin.taiKhoan}</button>
-            <button onClick={() => {
-                localStorage.removeItem(USER_LOGIN);
-                localStorage.removeItem(TOKEN);
-                history.push('/home');
-                window.location.reload();
-            }} className="text-blue-800">Đăng xuất</button> </Fragment> : ''}
-    </Fragment>
 
+    // const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
 
-    return <div className="p-5">
-        <Tabs tabBarExtraContent={operations} defaultActiveKey="1" activeKey={tabActive} onChange={(key) => {
-            dispatch({
-                type: 'CHANGE_TAB_ACTIVE',
-                number: key.toString()
-            })
-        }}>
-            <TabPane tab="01 CHỌN GHẾ THANH TOÁN" key="1"  >
-                <Checkout {...props} />
-            </TabPane>
-            <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
-                <KetQuaDatVe {...props} />
-            </TabPane>
-            <TabPane tab={<NavLink to='/'><HomeOutlined style={{ marginLeft: 10, fontSize: 25 }} /></NavLink>} key="3">
+    return <div className="layoutCha">
+        <div className="layoutCSS"></div>
 
-            </TabPane>
-        </Tabs>
-    </div>
-
-}
-
-function KetQuaDatVe(props) {
-
-    const dispatch = useDispatch();
-
-    const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-
-    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
-
-    useEffect(() => {
-        const action = layThongTinNguoiDungAction();
-        dispatch(action)
-    }, [])
-
-    console.log('thongTinNguoiDung', thongTinNguoiDung)
-
-    const renderTicketItem = () => {
-
-        return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
-            const seats = _.first(ticket.danhSachGhe)
-            return <div className="p-2 lg:w-1/3 md:w-1/2 w-full text-base" key={index}>
-                <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                    <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={ticket.hinhAnh} />
-                    <div className="flex-grow">
-                        <h2 className="text-gray-900 title-font font-medium text-xl">{ticket.tenPhim}</h2>
-                        <p className="text-gray-500">Giờ chiếu: {moment(ticket.ngayDat).format('HH:MM')} - Ngày Chiếu: {moment(ticket.ngayDat).format('DD-MM-YYYY')} </p>
-                        <span>Địa điểm: {seats.tenHeThongRap} - {seats.tenRap}</span>
-                        <p>Ghế: {ticket.danhSachGhe.map((ghe, index) => {
-                            return <span key={index} className="mr-2">[{ghe.tenGhe}]</span>
-                        })}</p>
-                    </div>
-                </div>
-            </div>
-        })
-    }
-
-    return <section className="text-gray-600 body-font">
-        <div className="container px-2 py-24 mx-auto">
-            <div className="flex flex-col text-center w-full mb-20">
-                <h1 className="text-4xl font-medium title-font mb-4 text-purple-600 ">Lịch sử đặt vé khách hàng</h1>
-                <i className="lg:w-2/3 mx-auto leading-relaxed text-xl font-semibold">Hãy xem thông tin địa chỉ, suất chiếu và thời gian để trải nghiệm phim một cách tốt nhất nhé !</i>
-            </div>
-            <div className="flex flex-wrap -m-2">
-                {renderTicketItem()}
-            </div>
+        <div className="layoutCon ">
+            <Checkout {...props} />
         </div>
-    </section>
 
+    </div>
 }
 
 

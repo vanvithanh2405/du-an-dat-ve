@@ -9,11 +9,11 @@ export default function FilmFlip(props) {
     const { item } = props
 
     return (
-        <div className="flip-card mt-10">
+        <div className="flip-card mt-10 ">
             <div className="flip-card-inner">
-                <div className="flip-card-front">
+                <div className="flip-card-front ">
 
-                    <img src={item.hinhAnh} alt="Avatar" style={{ width: 300, height: 300 }} className="" />
+                    <img src={item.hinhAnh} alt="Avatar" style={{ width: 200, height: 300 }} className="" />
                 </div>
                 <div className="flip-card-back " style={{ position: 'relative', backgroundColor: 'rgba(0,0,0,.9)' }}>
                     <div style={{ position: 'absolute', top: 0, left: 0 }} >
@@ -29,7 +29,7 @@ export default function FilmFlip(props) {
                             </div>
                             <button onClick={() => {
                                 history.push(`/detail/${item.maPhim}`);
-                            }} className=" px-4 py-2  text-center cursopr-pointer bg-black text-white text-success-50 font-bold ">
+                            }} className=" px-4 py-2  text-center cursor-pointer bg-black text-white text-success-50 font-bold ">
                                 Mua Vé
                             </button>
                         </div>

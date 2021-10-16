@@ -52,13 +52,13 @@ export default function Detail(props) {
                             </div>
                             <div className="col-span-4">
                                 <p className="text-3xl leading-3 font-semibold pt-3 tenFilm">{filmDetail.tenPhim}</p>
-                                <p className="text-sm"><span  className="font-semibold">Ngày chiếu: </span>{moment(filmDetail.ngayKhoiChieu).format('DD/MM/YYYY')}</p>
-                                <p><span className="font-semibold">Mô tả: </span>{filmDetail.moTa}</p>
+                                <p className="text-base"><span className="font-semibold">Ngày chiếu: </span>{moment(filmDetail.ngayKhoiChieu).format('DD/MM/YYYY')}</p>
+                                <p className="text-base"><span className="font-semibold">Mô tả: </span>{filmDetail.moTa}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="col-span-2  text-center rateFilm">
+                    <div className="col-span-2  text-center rateFilm flex flex-col items-center justify-center">
                         <h1 className="text-2xl text-white font-semibold">Đánh giá</h1>
                         <h1 className="text-2xl font-semibold text-yellow-600"><Rate allowHalf value={filmDetail.danhGia / 2} style={{ color: '#3d3d3d' }} /></h1>
                         <div className={`c100 p${filmDetail.danhGia * 10} trungBinh black dark` }>
@@ -75,31 +75,31 @@ export default function Detail(props) {
 
 
                 <div className="mt-10 container bg-white" id="tabsFilm">
-                    <Tabs defaultActiveKey="1" className="mt-10 "  centered>
+                    <Tabs defaultActiveKey="1"  centered>
                         <TabPane className="tab_header" tab="Lịch chiếu" key="1" style={{ minHeight: 300 }}>
                             <div >
                                 <Tabs tabPosition={'left'}>
                                     {filmDetail.heThongRapChieu?.map((hThongRap, index) => {
                                         return <TabPane
                                             tab={<div className="flex flex-row items-center justify-center"><img src={hThongRap.logo} className="rounded-full w-full" style={{ width: 50 }} />
-                                                <div className="text-center ml-2">
+                                                <div className="text-center ml-4 font-medium">
                                                     {hThongRap.tenHeThongRap}
                                                 </div>
                                             </div>}
-                                            key={index}>
+                                            key={index} >
                                             {hThongRap.cumRapChieu?.slice(0,3).map((cumRap, index) => {
                                                 return <div className="mt-10" key={index}>
                                                     <div className="flex">
                                                         <img style={{ width: 50, height: 50 }} src={cumRap.hinhAnh} />
                                                         <div className="ml-2">
-                                                            <p style={{ lineHeight: 1 }} className="text-base font-semibold">{cumRap.tenCumRap}</p>
-                                                            <p style={{ marginTop: 0 }}>{cumRap.diaChi}</p>
+                                                            <p style={{ lineHeight: 1 }} className="text-base font-bold">{cumRap.tenCumRap}</p>
+                                                            <p style={{ marginTop: 0 }} className="text-sm font-medium">{cumRap.diaChi}</p>
                                                         </div>
                                                     </div>
                                                     <div className="thong_tin_lich_chieu grid grid-cols-9 gap-3">
-                                                        {cumRap.lichChieuPhim?.slice(0, 8).map((lichChieu, index) => {
+                                                        {cumRap.lichChieuPhim?.slice(0, 12).map((lichChieu, index) => {
                                                             return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className="col-span-1 ">
-                                                                <button className="bg-gray-300 hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-1 px-4 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
+                                                                <button className="bg-gray-300 hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-1 px-3 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
                                                             </NavLink>
                                                         })}
 
@@ -110,9 +110,6 @@ export default function Detail(props) {
                                     })}
                                 </Tabs>
                             </div>
-                        </TabPane>
-                        <TabPane className="tab_header" tab="Thông tin" key="2">
-                            Content of Tab Pane 2
                         </TabPane>
 
                         <TabPane className="tab_header" tab="Đánh giá" key="3">
