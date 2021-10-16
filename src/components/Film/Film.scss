@@ -46,10 +46,8 @@
 }
 .fa-play:hover{
     transform: scale(1.2);
-}
-.fa-play::before{
-    content: "\f04b";
-    margin-left: 6px;
+    background: red;
+
 }
 
 .title p{
@@ -64,7 +62,7 @@
 	display: flex;
 	height: 30px;
 	width: 270px;
-	margin-top: 140px;
+	margin-top: 115px;
 	margin-left: 21px;
 }
 
@@ -75,6 +73,7 @@
 	color: rgba(0,0,0,0.7);
 	font-family: sans-serif;
 	font-size: 14px;
+	
 	
 }
 .head2{
@@ -95,4 +94,13 @@
 	font-size: 0.9em;
 	font-weight: 700;
 	
+}
+
+.head3{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 165px;
+    width: 100%;
+    margin: 36px auto;
 }

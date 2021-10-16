@@ -1,5 +1,5 @@
 import React, {useState } from "react";
-import { useDispatch } from 'react-redux'
+import { useDispatch   } from 'react-redux'
 // import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons';
 import Slider from "react-slick";
 import { SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU } from "../../redux/types/QuanLyPhimType";
@@ -79,7 +79,7 @@ const MultipleRows = (props) => {
   };
 
   return (
-    <div className="text-left backgroundFilm">
+    <div className="text-left   ">  
       <button type="button" className= {phimDangChieu ? `active_Film` : `none_active_Film`} onClick={() => {
         const action = { type: SET_FILM_DANG_CHIEU }
         dispatch(action);

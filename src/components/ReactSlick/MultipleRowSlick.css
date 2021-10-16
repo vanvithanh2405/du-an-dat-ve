@@ -36,3 +36,7 @@
     line-height: 24px;
     opacity: 1;
 }
+
+.slick-list{
+  padding: 10px !important;
+}
