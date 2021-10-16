@@ -27,9 +27,9 @@ export default function HomeMenu(props) {
                                 <div className="text-left ml-2 font-semibold">
                                     {cumRap.tenCumRap}
                                     <div className="text-s font-normal ">
-                                        {cumRap.diaChi.length > 35 ? <span>{cumRap.diaChi.slice(0, 35)} ...</span> : <span>{cumRap.diaChi}</span>}
+                                        {cumRap.diaChi.length > 40 ? <span>{cumRap.diaChi.slice(0, 40)} ...</span> : <span>{cumRap.diaChi}</span>}
                                     </div>
-                                    <div className="text-red-500 text-s font-normal">
+                                    <div className="text-red-500 text-s font-medium">
                                         [Chi tiết]
                                     </div>
                                 </div>

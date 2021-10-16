@@ -10,7 +10,7 @@ export default function Film(props) {
 		<div className="main  imgCard" onClick={()=>{
 			history.push(`/detail/${item.maPhim}`);
 		}}>
-			<img src={item.hinhAnh} className="backimg cursor-pointer" />
+			<img src={item.hinhAnh} className="backimg cursor-pointer" style={{paddingTop: '10px'}}/>
 			<i className="fa fa-play hover:scale-110 motion-reduce:transform-none" />
 			<div className="title">
 				<p>{item.tenPhim.length > 20 ? <span>{item.tenPhim.slice(0,20)}...</span> : <span>{item.tenPhim}</span>}</p>
