@@ -8,12 +8,8 @@ import { ThongTinDatVe } from './../../_core/models/ThongTinDatVe'
 // Css
 import checkoutStyle from './Checkout.module.css';
 import './Checkout.css'
-
 // Antd
-import { UserOutlined, CloseOutlined, CheckOutlined, HomeOutlined } from '@ant-design/icons';
-import { Tabs, TimePicker } from 'antd';
-import { layThongTinNguoiDungAction } from '../../redux/acitons/QuanLyNguoiDungAction';
-import moment from 'moment';
+import { UserOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom';
 import { history } from '../../App';
 import { TOKEN, USER_LOGIN } from '../../util/settings/config';
@@ -193,22 +189,17 @@ function Checkout(props) {
 
 
 
-
-// function callback(key) {
-//     console.log(key);
-// }
 export default function (props) {
 
     // const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
 
     return <div className="layoutCha">
         <div className="layoutCSS"></div>
-
-        <div className="layoutCon ">
-            <Checkout {...props} />
+        
+        <div className="layoutCon">
+                <Checkout {...props} />
         </div>
 
     </div>
 }
-
 

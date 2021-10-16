@@ -66,19 +66,50 @@ export default function HomeCarousel(props) {
     return (
 
         <Carousel autoplay style={{ width: '100%', padding: 0, margin: 0 }} effect="fade" >
-           {/* {renderImg()} */}
-           {/* {SampleNextArrow()} */}
-           <div style={{contentStyle}}>
-                    <img src={img1} className="opacity-1 w-full h-full" alt={img1} />                    
+            {/* {renderImg()} */}
+            {/* {SampleNextArrow()} */}
+            <div style={{ contentStyle }}>
+                <img src={img1} className="imgPoster opacity-1 w-full h-full" alt={img1} />
+                <div className="infoPoster">
+                    <h1 className="tenPhim4">IT <br/> Chú hề ma quái</h1>
+                    <h4>18/10/2021</h4>
+                    <div className="moTa">
+                    <p>Lorem, ipsum doloe sit amet, consestetur adipiscing elit, Nec vitae aliquet non dipretium, tempus. Et nunc quis sed et, risus purus massa. </p>
+                    </div>
+                </div>
             </div>
-            <div style={{contentStyle}}>
-                    <img src={img2} className="opacity-1 w-full h-full" alt={img2} />
+            <div style={{ contentStyle }}>
+                <img src={img2} className="imgPoster opacity-1 w-full h-full" alt={img2} />
+                <div className="infoPoster">
+                    <h1 className="tenPhim1">AquaMan</h1>
+                    <h4>31/10/2021</h4>
+                    <div className="moTa">
+                    <p>Lorem, ipsum doloe sit amet, consestetur adipiscing elit, Nec vitae aliquet non dipretium, tempus. Et nunc quis sed et, risus purus massa. </p>
+                    </div>
+                </div>
+
             </div>
-            <div style={{contentStyle}}>
-                    <img src={img3} className="opacity-1 w-full h-full"alt={img3} />
+            <div style={{ contentStyle }}>
+                <img src={img3} className="imgPoster opacity-1 w-full h-full" alt={img3} />
+                <div className="infoPoster">
+                    <h1 className="tenPhim2 bg-gradient-to-r from-gray-200 to-blue-300">Frozen</h1>
+                    <h4>11/11/2021</h4>
+                    <div className="moTa">
+                    <p>Lorem, ipsum doloe sit amet, consestetur adipiscing elit, Nec vitae aliquet non dipretium, tempus. Et nunc quis sed et, risus purus massa. </p>
+                    </div>
+                </div>
+
             </div>
-            <div style={{contentStyle}}>
-                    <img src={img4} className="opacity-1 w-full h-full" alt={img4} />
+            <div style={{ contentStyle }}>
+                <img src={img4} className="imgPoster opacity-1 w-full h-full" alt={img4} />
+                <div className="infoPoster">
+                    <h1 className="tenPhim3">Avengers <br/> Infinity War</h1>
+                    <h4>20/11/2021</h4>
+                    <div className="moTa">
+                    <p>Lorem, ipsum doloe sit amet, consestetur adipiscing elit, Nec vitae aliquet non dipretium, tempus. Et nunc quis sed et, risus purus massa. </p>
+                    </div>
+                </div>
+
             </div>
             {/* {SamplePrevArrow()} */}
         </Carousel>
