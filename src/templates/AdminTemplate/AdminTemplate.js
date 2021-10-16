@@ -91,7 +91,7 @@ export const AdminTemplate = (props) => {//path, exact, component
             <Layout style={{ minHeight: '100vh' }}>
                 <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
                     <NavLink className="navbar-brand" to="/">
-                        <div className="logo p-5">
+                        <div className="p-5">
                             <Link to="/"><img src={logoW} alt="logo" /></Link>
                         </div>
                     </NavLink>
@@ -144,7 +144,7 @@ export const AdminTemplate = (props) => {//path, exact, component
                             <Component {...propsRoute} />
                         </div>
                     </Content>
-                    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                    <Footer style={{ textAlign: 'center' }}>Rạp 2021 cyberSoft@gmail.com</Footer>
                 </Layout>
             </Layout>
         </Fragment>

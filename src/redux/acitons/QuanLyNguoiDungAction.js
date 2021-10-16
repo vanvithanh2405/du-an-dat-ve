@@ -92,6 +92,28 @@ export const layThongTinNguoiDungAction = (taiKhoan) => {
     }
 }}
 
+export const layThongTinDatVeAction = () => {
+
+
+    return async(dispatch) => {
+        try {
+            const result = await qlNguoiDungService.layThongTinNguoiDung();
+            dispatch({
+                type: SET_THONG_TIN_NGUOI_DUNG,
+                thongTinNguoiDung: result?.data.content
+            })
+
+            console.log('result', result.data.content)
+        } catch (error) {
+            console.log('errors', error.response.data)
+            Swal.fire({
+                icon: 'error',
+                title: error.response?.data.message,
+                text: `${error.response?.data.content}`,
+        })
+    }
+}}
+
 
 
 //cách 1
