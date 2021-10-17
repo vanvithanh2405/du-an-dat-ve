@@ -62,9 +62,6 @@ export default function Profiles(props) {
                                 </div>
                             </div>
 
-
-
-
                             {renderNguoiDung()}
                         </div>
                     </div>

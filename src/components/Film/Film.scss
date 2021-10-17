@@ -36,7 +36,8 @@
 	position: absolute;
     margin-top: -31px;
     font-size: 2rem;
-    background: gray;
+	background: gray;
+	opacity: 0.5;
     color: white;
     border-radius: 60px;
     padding: 15px;
@@ -46,6 +47,7 @@
 }
 .fa-play:hover{
     transform: scale(1.2);
+	opacity: 1;
     background: red;
 
 }
@@ -103,4 +105,17 @@
     max-width: 165px;
     width: 100%;
     margin: 36px auto;
+}
+
+.head3 .btn{
+	opacity: 0.25;
+	transition: all .2s ease-in-out;
+	border: none;
+}
+.head3 .btn:hover{
+	opacity: 1;
+	transform: scale(1.1);
+    background: red;
+	border: none;
+
 }

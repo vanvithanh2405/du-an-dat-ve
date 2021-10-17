@@ -32,7 +32,7 @@ export default function Film(props) {
 				</div>
 			</div>
 			<div className="head3 text center">
-				<button className="btn btn-secondary opacity-30 hover:opacity-100 rounded-tl-lg rounded-tr-lg font-medium" onClick={() => {
+				<button className="btn btn-secondary rounded-tl-lg rounded-tr-lg font-medium" onClick={() => {
 					history.push(`/detail/${item.maPhim}`);
 				}}>XEM CHI TIẾT</button>
 			</div>
