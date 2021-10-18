@@ -50,7 +50,7 @@ export default function Film(props) {
 			: null;
 	}
 
-
+	
 
 	return (
 		<div className="main  imgCard" >
