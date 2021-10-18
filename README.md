@@ -1,14 +1,10 @@
 # Project
 Booking Ticket project
 # Preview
-#Home Page
 ![image](https://user-images.githubusercontent.com/79786230/137734155-2ac9cb12-0305-4d4d-8b29-6497e374a132.png)
 
-
-#Detail
 ![image](https://user-images.githubusercontent.com/79786230/137734270-c8d0a5ee-9fd7-427d-a583-82aa5d084bdd.png)
 
-#Checkout
 ![image](https://user-images.githubusercontent.com/79786230/137734441-c2ddab47-808e-48f1-88f4-4252739029a7.png)
 
 #Wireframe
