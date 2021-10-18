@@ -19,7 +19,7 @@ export const HomeTemplate = (props) => {
             </div>
 
             <div className="mt-20 lineFooter"></div>
-            <Footer id="footer" style={{marginTop: '2rem'}}/>
+            <Footer id="footer" />
 
         </Fragment>
     }} />
