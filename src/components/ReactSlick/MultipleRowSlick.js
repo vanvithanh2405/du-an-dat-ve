@@ -13,7 +13,7 @@ import Film from "../Film/Film";
 
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { style, onClick } = props;
   return (
     <div
         className="slick-arrow ArrowCustom"
@@ -26,7 +26,7 @@ function SampleNextArrow(props) {
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { style, onClick } = props;
   return (
     <div
         className="slick-arrow ArrowCustom"
@@ -68,11 +68,11 @@ const MultipleRows = (props) => {
     centerPadding: "0px",
     centerMode: true,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     slidesToShow: 4,
     slidesToScroll: 4,
     speed: 500,
-    rows: 2,
+    rows: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     initialSlide: 0,
@@ -85,7 +85,7 @@ const MultipleRows = (props) => {
           slidesToScroll: 2,
           infinite: true,
           dots: true,
-          rows: 2,
+          rows: 1,
         }
       },
       {
@@ -96,7 +96,7 @@ const MultipleRows = (props) => {
           slidesToScroll: 2,
           nextArrow: false,
           prevArrow: false,
-          rows: 2,
+          rows: 1,
         }
       },
       {

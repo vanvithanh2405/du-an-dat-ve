@@ -18,7 +18,6 @@ export const HomeTemplate = (props) => {
                 <Component {...propsRoute} />
             </div>
 
-            <div className="mt-20 lineFooter"></div>
             <Footer id="footer" />
 
         </Fragment>

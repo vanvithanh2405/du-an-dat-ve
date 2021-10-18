@@ -167,9 +167,9 @@ export default function Detail(props) {
 
             </CustomCard>
 
-            <Modal visible={isModalVisible} centered
+            <Modal visible={isModalVisible} centered width={1000} height={500}
                 style={{ width: (width / 100) }} footer onOk={handleOk} onCancel={handleCancel}>
-                <iframe style={{ width: '100%' }} height="400px" src={convertLink(filmDetail?.trailer)}></iframe>
+                <iframe style={{ width: '100%' }} height="500px" src={convertLink(filmDetail?.trailer)}></iframe>
             </Modal>
         </div>
     )

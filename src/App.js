@@ -1,11 +1,13 @@
 import './App.css';
 import { createBrowserHistory } from 'history';
-import { Router, Switch } from 'react-router';
+import { Router} from 'react-router';
+import { Route, Switch } from "react-router-dom";
+
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate';
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
 import { LoginTemplate } from './templates/LoginTemplate/LoginTemplate';
-
+import DetailTemplate from "./templates/DetailTemplate/DetailTemplate";
 import Contact from './pages/Contact/Contact';
 import News from './pages/News/News';
 import Login from './pages/Login/Login';
@@ -14,6 +16,8 @@ import Home from './pages/Home/Home';
 import Detail from './pages/Detail/Detail';
 import CheckoutTemplate from './templates/CheckoutTemplate/CheckoutTemplate';
 import Checkout from './pages/Checkout/Checkout';
+import CheckoutMobile from './pages/Checkout/CheckoutMobile';
+import CheckoutIpad from './pages/Checkout/CheckoutIpad';
 import Loading from './components/Loading/Loading';
 import Profiles from './pages/Profiles/Profiles';
 import Films from './pages/Admin/Films/Films';
@@ -28,7 +32,7 @@ import Booked from './pages/Admin/User/Booked/Booked';
 import LoginAnimation from './pages/Login/LoginAnimation';
 import DetailMobile from './pages/Detail/DetailMobile';
 import DetailIpad from './pages/Detail/DetailIpad';
-import DetailTemplate from "./templates/DetailTemplate/DetailTemplate";
+
 
 
 // import { Suspense, lazy } from 'react';
@@ -49,7 +53,8 @@ function App() {
         {/* Detail */}
         <DetailTemplate path="/detail/:id" exact Component={Detail} ComponentMobile={DetailMobile} ComponentIpad={DetailIpad} />
         {/* User */}
-        <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} />
+        <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} ComponentMobile={CheckoutMobile} ComponentIpad={CheckoutIpad} />
+        {/* <HomeTemplate path='/phim' component={ApiFunction} componentMobile={DemoApi_mobile} /> */}
         {/* <UserTemplate path="/login" exact Component={Login} /> */}
         <LoginTemplate path="/login" exact Component={Login} />
         {/* <UserTemplate path="/register" exact Component={Register} /> */}

@@ -98,7 +98,7 @@ export default function DetailIpad(props) {
                             <div className="col-span-2 flex flex-col justify-center ml-10">
                                 <p className="text-white">{moment(filmDetail.ngayKhoiChieu).format('dd-mm-yyyy')}</p>
                                 <p className="text-xl text-white">{filmDetail.tenPhim}</p>
-                                <p className="text-white text-xs">{filmDetail.moTa}</p>
+                                <p className="text-black text-xs">{filmDetail.moTa}</p>
                                 {/* {filmDetail.moTa.length > 200 ? filmDetail.moTa.slice(0, 200) + '...' : filmDetail.moTa} */}
                             </div>
                         </div>

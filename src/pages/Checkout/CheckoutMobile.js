@@ -10,12 +10,10 @@ import checkoutStyle from './Checkout.module.css';
 import './Checkout.css'
 // Antd
 import { UserOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
-import { NavLink } from 'react-router-dom';
-import { history } from '../../App';
-import { TOKEN, USER_LOGIN } from '../../util/settings/config';
 
 
-function Checkout(props) {
+
+function CheckoutMobile(props) {
 
     const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
 
@@ -64,7 +62,7 @@ function Checkout(props) {
                         type: DAT_VE,
                         gheDuocChon: ghe
                     })
-                }} disabled={ghe.daDat} className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat} text-center `} key={index}>
+                }} disabled={ghe.daDat} className={`ghe1 ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat} text-center `} key={index}>
                     {ghe.daDat ? classGheDaDuocDat != '' ? <UserOutlined style={{ marginBottom: 0 }} /> : <CloseOutlined style={{ marginBottom: 0 }} /> : ghe.stt}
                 </button>
 
@@ -76,26 +74,14 @@ function Checkout(props) {
     }
     return (
         <div className="container-fluid min-h-screen">
-            <div className="grid grid-cols-12 mt-2 mb-5">
-                <div className="col-span-2"></div>
-                <div className="info_Rap col-span-8">
-
-                    <div><p className="mb-0"><span className="font-semibold">Địa điểm: </span>{thongTinPhim.tenCumRap}</p></div>
-                    <div><p className="mb-0"><span className="font-semibold">Phim: </span> {thongTinPhim.tenPhim}</p></div>
-                    <div><p className="mb-0"><span className="font-semibold">Ngày chiếu: </span> {thongTinPhim.ngayChieu}</p></div>
-                </div>
-                <div className="col-span-2"></div>
-
-            </div>
-            <div className="grid grid-cols-12">
-                <div className="col-span-9 layout_Rap">
+            <div>
+                <div className="layout_RapMB">
                     <div className="flex flex-col items-center mt-5">
-
                         <div className="bg-white" style={{ width: '80%', height: 15 }}>
                         </div>
                         <div className={`${checkoutStyle['trapezoid']}`}>
                         </div>
-                        <div className={`${checkoutStyle['manHinh']}`}>
+                        <div className={`${checkoutStyle['manHinhMB']}`}>
                             <h3 className="font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-green-100 to-gray300 ">Screen</h3>
                         </div>
                         <div>
@@ -105,7 +91,7 @@ function Checkout(props) {
 
                     <div className="mt-5 flex justify-center">
                         <table className=" divide-y divide-gray-200 w-2/3">
-                            <thead className="bg-gray-50 p-5 text-center ">
+                            <thead className="bg-gray-50 p-5 text-center infoSeatsMB">
                                 <tr>
                                     <th>Ghế chưa đặt</th>
                                     <th>Ghế đang đặt</th>
@@ -116,56 +102,26 @@ function Checkout(props) {
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200 text-center">
                                 <tr>
-                                    <td><button className="ghe text-center"> <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> </button> </td>
-                                    <td><button className="ghe gheDangDat text-center"> <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button> </td>
-                                    <td><button className="ghe gheVip text-center"><CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button> </td>
-                                    <td><button className="ghe gheDaDat text-center"> <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> </button> </td>
-                                    <td><button className="ghe gheDaDuocDat text-center"> <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> </button> </td>
+                                    <td><button className="ghe1 text-center"> <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> </button> </td>
+                                    <td><button className="ghe1 gheDangDat text-center"> <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button> </td>
+                                    <td><button className="ghe1 gheVip text-center"><CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button> </td>
+                                    <td><button className="ghe1 gheDaDat text-center"> <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> </button> </td>
+                                    <td><button className="ghe1 gheDaDuocDat text-center"> <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> </button> </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div className="col-span-3 layout_Bill">
-                    <h3 className="text-2xl my-3 text-center pt-4">{thongTinPhim.tenPhim}</h3>
+            </div>
+            <div>
+                <div className="layout_Bill_Ipad">
+                    <h3 className="text-xl my-3 text-center pt-4">{thongTinPhim.tenPhim}</h3>
                     <hr />
                     <p className="text-base pt-3">Địa điểm: <span className="font-semibold">{thongTinPhim.tenCumRap} - {thongTinPhim.tenRap}</span></p>
                     <p className="text-base">Ngày chiếu : <span className="font-semibold">{thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu}</span></p>
                     <hr />
-                    <div className="grid grid-cols-2 my-3">
-                        <div>
-                            <span className="text-red-400 text-xl font-semibold">Ghế: </span>
-                            {_.sortBy(danhSachGheDangDat, ['stt']).map((gheDD, index) => {
-                                return <span key={index} className="text-green-500 text-xl mr-2">{gheDD.stt}</span>
-                            })}
-                        </div>
-                        <div className="text-right">
-                            <span className="text-green-400 text-xl font-semibold">
-                                {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
-                                    return tongTien += ghe.giaVe;
-                                }, 0).toLocaleString()} <label>VND</label>
-                            </span>
-                        </div>
-                    </div>
-                    <hr />
-                    <h5 className="pt-3 text-xl text-center">Thông tin người đặt</h5>
-
-                    <div className="text-lg my-3">
-                        <i>Email: </i>
-                        {userLogin.email}
-                        {/* {userLogin.email.length > 15 ? userLogin.email.substr(0, 15) + '...' : userLogin.email} */}
-
-                    </div>
-                    <div className="text-lg my-3">
-                        <i>Phone: </i>
-                        {userLogin.soDT}
-                        {/* {userLogin.soDT.length > 15 ? userLogin.soDT.substr(0, 15) + '...' : userLogin.soDT} */}
-
-
-                    </div>
-                    <hr />
                     <h5 className="pt-3 text-xl">Thành Tiền:</h5>
-                    <h4 className="text-center text-2xl text-green-400">
+                    <h4 className="text-center text-xl text-green-400">
                         {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
                             return tongTien += ghe.giaVe;
                         }, 0).toLocaleString()} <span>VND</span>
@@ -180,7 +136,7 @@ function Checkout(props) {
                             const action = DatVeAction(thongTinDatVe);
                             dispatch(action)
 
-                        }} className="bg-gray-600 hover:bg-gray-800 text-white w-3/4 text-center py-3 font-semibold text-lg cursor-pointer">
+                        }} className="bg-gray-600 hover:bg-gray-800 text-white w-2/4 text-center py-1 font-semibold text-l cursor-pointer">
                             ĐẶT VÉ
                         </div>
                     </div>
@@ -199,10 +155,13 @@ export default function (props) {
     return <div className="layoutCha">
         <div className="layoutCSS"></div>
         
-        <div className="layoutCon">
-                <Checkout {...props} />
+        <div className="layoutConMB">
+                <CheckoutMobile {...props} />
         </div>
 
     </div>
 }
+
+
+
 

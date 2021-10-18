@@ -5,7 +5,6 @@ import { useWindowSize } from 'react-use';
 import Footer from "../HomeTemplate/Layout/Footer/Footer";
 import Header from "../HomeTemplate/Layout/Header/Header";
 
-
 const DetailTemplate = (props) => { //path, exact, Component
 
     const { Component, ...restProps } = props;
@@ -38,8 +37,7 @@ const DetailTemplate = (props) => { //path, exact, Component
             <Header {...propsRoute} />
 
             {renderComponent(propsRoute)}
-
-            <div className="mt-20 lineFooter"></div>
+            
             <Footer id="footer" style={{marginTop: '2rem'}}/>
 
         </Fragment>
