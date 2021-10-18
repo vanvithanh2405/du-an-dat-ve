@@ -18,8 +18,8 @@ export const HomeTemplate = (props) => {
                 <Component {...propsRoute} />
             </div>
 
-            <hr className="mt-10" />
-            <Footer id="footer"/>
+            <div className="mt-20 lineFooter"></div>
+            <Footer id="footer" style={{marginTop: '2rem'}}/>
 
         </Fragment>
     }} />

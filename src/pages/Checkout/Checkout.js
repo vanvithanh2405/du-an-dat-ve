@@ -152,12 +152,12 @@ function Checkout(props) {
 
                     <div className="text-lg my-3">
                         <i>Email: </i>
-                        {userLogin.email.length > 15 ? userLogin.email.substr(0, 15) + '...' : userLogin.email}
+                        <span className="font-semibold">{userLogin.email}</span>
 
                     </div>
                     <div className="text-lg my-3">
                         <i>Phone: </i>
-                        {userLogin.soDT.length > 15 ? userLogin.soDT.substr(0, 15) + '...' : userLogin.soDT}
+                        <span className="font-semibold">{userLogin.soDT.length > 15 ? userLogin.soDT.substr(0, 15) + '...' : userLogin.soDT} </span>
 
                     </div>
                     <hr />

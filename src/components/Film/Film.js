@@ -12,7 +12,7 @@ export default function Film(props) {
 				history.push(`/detail/${item.maPhim}`);
 			}} />
 			<i className="fa fa-play hover:scale-110 motion-reduce:transform-none" />
-			<div className="title">
+			<div className="title font-semibold">
 				<p>{item.tenPhim.length > 20 ? <span>{item.tenPhim.slice(0, 20)}...</span> : <span>{item.tenPhim}</span>}</p>
 			</div>
 			<div className="head1">

@@ -34,7 +34,6 @@ function SamplePrevArrow(props) {
         onClick={onClick}
     >
         <LeftOutlined  className={'ArrowLeft'} style={{fontSize:'4rem'}}/>
-        
     </div>
 );
 }
@@ -115,7 +114,7 @@ const MultipleRows = (props) => {
   };
 
   return (
-    <div className="text-left   ">
+    <div className="text-left">
       <button type="button" className={phimDangChieu ? `active_Film` : `none_active_Film`} onClick={() => {
         const action = { type: SET_FILM_DANG_CHIEU }
         dispatch(action);

@@ -131,3 +131,11 @@
   }
 }
 
+@media screen and (max-width: 450px) {
+  .movie__listCinemas .hideOnPC {
+    display: block !important;
+    max-width: 100rem !important;
+    width: 100% !important
+  }
+}
+

@@ -16,7 +16,7 @@ export default function Footer() {
 
 
     return (
-        <footer className="footer bg-black relative pt-1 border-b-2 border-black ">
+        <footer className="footer bg-black relative border-b-2 border-black ">
             <div className="container mx-auto px-6">
 
                 <div className="sm:flex sm:mt-8">
