@@ -83,6 +83,7 @@
     font-size: 12px;
     background-color: #C4C4C4;
     color: #000;
+    margin: 20px;
 }
 
 .gheIpad{
@@ -93,7 +94,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 5px;
+    margin: 8px;
     font-size: 10px;
     background-color: #C4C4C4;
     color: #000;
