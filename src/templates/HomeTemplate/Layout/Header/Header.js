@@ -50,7 +50,7 @@ export default function Header(props) {
                             }}>Trang chủ</a>
                         </li>
                         <li className="flex ">
-                            <a href="#lichChieu" className="flex items-center px-4 -mb-1 dark:border-transparent text-black font-semibold" activeClassName="border-b-1 border-black font-bold">Lịch chiếu</a>
+                            <a href="#lichChieu" className="flex items-center px-4 -mb-1 dark:border-transparent text-black font-semibold" activeClassName="border-b-1 border-black font-bold">Phim</a>
                         </li>
                         <li className="flex ">
                             <a href="#cumRap" className="flex items-center px-4 -mb-1 dark:border-transparent text-black font-semibold" activeClassName="border-b-1 border-black font-bold">Cụm rạp</a>

@@ -3,16 +3,16 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { CustomCard } from '@tsamantanis/react-glassmorphism'
 import { Rate } from 'antd';
-import { LikeOutlined, CommentOutlined, UserOutlined,CaretRightOutlined } from '@ant-design/icons';
+import {CaretRightOutlined } from '@ant-design/icons';
 import '@tsamantanis/react-glassmorphism/dist/index.css'
 import '../../assets/styles/circlePercent.scss'
-import './Detail.css'
+import './Detail.scss'
 // Tabs
 import { Tabs } from 'antd';
 import { layThongTinChiTietPhim } from '../../redux/acitons/QuanLyRapAction';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom';
-import { slice } from 'lodash';
+
 
 const { TabPane } = Tabs;
 export default function Detail(props) {
@@ -99,7 +99,7 @@ export default function Detail(props) {
                                                     <div className="thong_tin_lich_chieu grid grid-cols-9 gap-3">
                                                         {cumRap.lichChieuPhim?.slice(0, 12).map((lichChieu, index) => {
                                                             return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className="col-span-1 ">
-                                                                <button className="bg-gray-300 hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-1 px-3 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
+                                                                <button className="bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-1 px-3 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
                                                             </NavLink>
                                                         })}
 

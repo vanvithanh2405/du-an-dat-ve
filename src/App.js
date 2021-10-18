@@ -26,6 +26,9 @@ import AddUser from './pages/Admin/User/AddUser/AddUser';
 import EditUser from './pages/Admin/User/EditUser/EditUser';
 import Booked from './pages/Admin/User/Booked/Booked';
 import LoginAnimation from './pages/Login/LoginAnimation';
+import DetailMobile from './pages/Detail/DetailMobile';
+import DetailIpad from './pages/Detail/DetailIpad';
+import DetailTemplate from "./templates/DetailTemplate/DetailTemplate";
 
 
 // import { Suspense, lazy } from 'react';
@@ -42,14 +45,15 @@ function App() {
         <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/contact" exact Component={Contact} />
         <HomeTemplate path="/news" exact Component={News} />
-        <HomeTemplate path="/detail/:id" exact Component={Detail} />
-        <HomeTemplate path="/profile" exact Component={Profiles}/>
+        <HomeTemplate path="/profile" exact Component={Profiles} />
+        {/* Detail */}
+        <DetailTemplate path="/detail/:id" exact Component={Detail} ComponentMobile={DetailMobile} ComponentIpad={DetailIpad} />
         {/* User */}
         <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} />
         {/* <UserTemplate path="/login" exact Component={Login} /> */}
         <LoginTemplate path="/login" exact Component={Login} />
         {/* <UserTemplate path="/register" exact Component={Register} /> */}
-        <HomeTemplate path="/logina" exact Components={LoginAnimation}/>
+        <HomeTemplate path="/logina" exact Components={LoginAnimation} />
         {/* Admin user*/}
         <AdminTemplate path="/admin" exact Component={Dashboard}></AdminTemplate>
         <AdminTemplate path="/admin/user" exact Component={User}></AdminTemplate>
