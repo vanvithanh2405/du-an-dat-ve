@@ -1,13 +1,13 @@
-import  React, { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect,useState } from "react";
 import { Redirect} from "react-router";
-import { Route } from "react-router-dom";
+import { Route } from "react-router-dom"
 import { USER_LOGIN } from "../../util/settings/config";
-import Header from "./../HomeTemplate/Layout/Header/Header";
-import Footer from "./../HomeTemplate/Layout/Footer/Footer";
+import Footer from "../HomeTemplate/Layout/Footer/Footer";
+import Header from "../HomeTemplate/Layout/Header/Header";
 
 
+const DetailTemplate = (props) => { //path, exact, Component
 
-export const DetailTemplate = (props) => {
     const { Component, ...restProps } = props;
 
     const [state, setState] = useState(3); //1 mobile (ip 6/7 ip 6/7plus), 2 ipad, 3 desktop
@@ -46,6 +46,10 @@ export const DetailTemplate = (props) => {
 
     })
 
+    if (!localStorage.getItem(USER_LOGIN)) {
+        return <Redirect to="/login" />
+    }
+
     const renderComponent = (propsRoute) => {
         if (state === 3) {
             return <props.Component {...propsRoute} />
@@ -61,17 +65,20 @@ export const DetailTemplate = (props) => {
         }
         // return <props.Component {...propsRoute} />
     }
-    return <Route {...restProps} render={(propsRoute) => { //props.location,props.history.props.match
 
+
+    return <Route {...restProps} render={(propsRoute) => {
         return <Fragment>
             <Header {...propsRoute} />
-            <div>
-                {renderComponent(propsRoute)}
-            </div>
 
-            <hr className="mt-10" />
-            <Footer id="footer"/>
+            {renderComponent(propsRoute)}
+
+            {/* <div className="mt-20 lineFooter"></div> */}
+            <Footer id="footer" style={{marginTop: '2rem'}}/>
 
         </Fragment>
+
     }} />
 }
+
+export default DetailTemplate;

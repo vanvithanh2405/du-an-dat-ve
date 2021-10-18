@@ -7,14 +7,13 @@ import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate';
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
 import { LoginTemplate } from './templates/LoginTemplate/LoginTemplate';
-import { DetailTemplate } from './templates/DetailTemplate/DetailTemplate';
+import DetailTemplate from "./templates/DetailTemplate/DetailTemplate";
 import Contact from './pages/Contact/Contact';
 import News from './pages/News/News';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Home from './pages/Home/Home';
 import Detail from './pages/Detail/Detail';
-import DetailMB from './pages/Detail/DetailMB';
 import CheckoutTemplate from './templates/CheckoutTemplate/CheckoutTemplate';
 import Checkout from './pages/Checkout/Checkout';
 import CheckoutMobile from './pages/Checkout/CheckoutMobile';
@@ -31,7 +30,8 @@ import AddUser from './pages/Admin/User/AddUser/AddUser';
 import EditUser from './pages/Admin/User/EditUser/EditUser';
 import Booked from './pages/Admin/User/Booked/Booked';
 import LoginAnimation from './pages/Login/LoginAnimation';
-
+import DetailMobile from './pages/Detail/DetailMobile';
+import DetailIpad from './pages/Detail/DetailIpad';
 
 // import { Suspense, lazy } from 'react';
 export const history = createBrowserHistory();
@@ -47,7 +47,7 @@ function App() {
         <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/contact" exact Component={Contact} />
         <HomeTemplate path="/news" exact Component={News} />
-        <DetailTemplate path="/detail/:id" exact Component={Detail} ComponentMobile={DetailMB} ComponentIpad={DetailMB} />
+        <DetailTemplate path="/detail/:id" exact Component={Detail} ComponentMobile={DetailMobile} ComponentIpad={DetailIpad} />
         <HomeTemplate path="/profile" exact Component={Profiles}/>
         {/* User */}
         <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} ComponentMobile={CheckoutMobile} ComponentIpad={CheckoutIpad} />
