@@ -68,11 +68,11 @@ export default function HomeMenu(props) {
                                             <img style={{ height: 120, width: 90 }} src={phim.hinhAnh} alt={phim.hinhAnh} />
                                             <div className="ml-10">
                                                 <h2 className=" text-2xl font-semibold ">{phim.tenPhim}</h2>
-                                                <p className="text-xs font-base">120 phút - 8.0 IMDb - 2D/Digital</p>
-                                                <div className="grid grid-cols-5 gap-3">
-                                                    {phim.lstLichChieuTheoPhim?.slice(0, 10).map((lichChieu, index) => {
+                                                <p className="text-sm font-medium">{createRandomNumber(120, 90)} phút - {createRandomNumber(9.7, 3.4).toFixed(1)} IMDb -{createRandomNumber(3, 2)}D Digital</p>
+                                                <div className="grid grid-cols-10 gap-2">
+                                                    {phim.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
                                                         return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
-                                                            <button className="bg-gray-300 hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-2 px-2 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
+                                                            <button className="bg-gray-200  border-black hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-2 px-2.5 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
                                                         </NavLink>
                                                     })}
                                                 </div>

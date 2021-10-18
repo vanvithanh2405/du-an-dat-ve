@@ -68,6 +68,7 @@ const MultipleRows = (props) => {
     centerPadding: "0px",
     centerMode: true,
     infinite: true,
+    autoplay: true,
     slidesToShow: 4,
     slidesToScroll: 4,
     speed: 500,
