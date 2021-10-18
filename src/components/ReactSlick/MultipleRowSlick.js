@@ -72,7 +72,7 @@ const MultipleRows = (props) => {
     slidesToShow: 4,
     slidesToScroll: 4,
     speed: 500,
-    rows: 2,
+    rows: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     initialSlide: 0,
@@ -85,7 +85,7 @@ const MultipleRows = (props) => {
           slidesToScroll: 2,
           infinite: true,
           dots: true,
-          rows: 2,
+          rows: 1,
         }
       },
       {
@@ -96,7 +96,7 @@ const MultipleRows = (props) => {
           slidesToScroll: 2,
           nextArrow: false,
           prevArrow: false,
-          rows: 2,
+          rows: 1,
         }
       },
       {
@@ -115,7 +115,7 @@ const MultipleRows = (props) => {
   };
 
   return (
-    <div className="text-left   ">
+    <div className="text-left">
       <button type="button" className={phimDangChieu ? `active_Film` : `none_active_Film`} onClick={() => {
         const action = { type: SET_FILM_DANG_CHIEU }
         dispatch(action);

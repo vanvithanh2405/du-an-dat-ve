@@ -14,12 +14,21 @@
     max-width: 100%;
     width: 100%;
     margin: 0 auto !important;
-    padding: 1rem ;
-    padding-left: 4rem ;
+    padding: 1rem;
+    padding-left: 4rem;
     padding-right: 4rem;
 }
 
-.info_Rap{
+.layoutConMB {
+    position: absolute;
+    top: 100px;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto !important;
+    padding: 1rem;
+}
+
+.info_Rap {
     background: white;
     /* width: 70%; */
     display: flex;
@@ -28,30 +37,24 @@
     align-items: center;
     border-radius: 10px;
     box-shadow: 2px 2px 15px 4px rgb(0 0 0 / 34%);
-
-    
 }
 
-
-/* .ant-tabs>.ant-tabs-nav .ant-tabs-nav-wrap,
-.ant-tabs>div>.ant-tabs-nav .ant-tabs-nav-wrap .layoutCon {
-    position: relative;
-    display: inline-block;
-    display: flex;
-    background-color: white;
-    align-items: center;
-    justify-content: center;
-    margin-left: 200px;
-    margin-right: 200px;
+.infoSeatsMB th {
+    font-size: 8px;
 }
-.ant-tabs-top > .ant-tabs-nav::before, .ant-tabs-top > div > .ant-tabs-nav::before .layoutCon{
-    border: 0;
-} */
+.infoSeatsIpad th {
+    font-size: 8px;
+}
 
 .layout_Rap {
     background-color: #0F052F;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
+}
+
+.layout_RapMB {
+    background-color: #0F052F;
+    border-radius: 20px;
 }
 
 .layout_Bill {
@@ -61,6 +64,13 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+.layout_Bill_Ipad{
+    background-color: #fff;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 2rem;
+}
 
 .ghe {
     /* ghế thường */
@@ -69,11 +79,39 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 17px;
+    margin: 10px;
+    font-size: 12px;
+    background-color: #C4C4C4;
+    color: #000;
+}
+
+.gheIpad{
+    /* ghế ipad */
+
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
     font-size: 10px;
     background-color: #C4C4C4;
     color: #000;
 }
+
+.ghe1 {
+    /* ghế mobile */
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px;
+    font-size: 8px;
+    background-color: #C4C4C4;
+    color: #000;
+}
+
 
 .gheDaDat {
     background-color: rgb(232, 76, 76) !important;
@@ -99,5 +137,5 @@
     -webkit-box-shadow: -1px 2px 18px -6px orange;
     box-shadow: -1px 2px 18px -6px orange;
     color: orange !important;
-    border: 1px solid orange; 
+    border: 1px solid orange;
 }

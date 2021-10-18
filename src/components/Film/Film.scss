@@ -9,8 +9,8 @@
 	display: block;
 	margin: auto;
 	margin-top: 100px;
-	border-radius: 30px;
-	height: 530px;
+	border-radius: 5px;
+	height: 500px;
 	width: 300px;
 	background: white; 
     // box-shadow: 0px 20px 100px rgba(0,0,0,0.1);
@@ -18,11 +18,11 @@
 }
 
 .backimg{
-	height: 280px;
+	height: 320px;
     width: 280px;
 	margin-left: 10px;
 	margin-top:10px;
-	border-radius: 30px 30px 10px 30px;
+	border-radius: 5px;
 }
 .movie-cover{
 	position:absolute;
@@ -55,7 +55,7 @@
 .title p{
     position:absolute;
 	margin-left: 15px;
-	margin-top: 4rem;
+	margin-top: 1rem;
 	font-size: 1.25rem;
 	font-family: sans-serif;
 }
@@ -64,7 +64,7 @@
 	display: flex;
 	height: 30px;
 	width: 270px;
-	margin-top: 115px;
+	margin-top: 60px;
 	margin-left: 21px;
 }
 
@@ -99,12 +99,12 @@
 }
 
 .head3{
-	display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 165px;
+	// display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // max-width: 165px;
     width: 100%;
-    margin: 36px auto;
+    // margin: 6px auto;
 }
 
 .head3 .btn{
@@ -115,7 +115,7 @@
 .head3 .btn:hover{
 	opacity: 1;
 	transform: scale(1.1);
-    background: red;
+    // background: red;
 	border: none;
 
 }

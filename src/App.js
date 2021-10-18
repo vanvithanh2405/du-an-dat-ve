@@ -1,19 +1,24 @@
 import './App.css';
 import { createBrowserHistory } from 'history';
-import { Router, Switch } from 'react-router';
+import { Router} from 'react-router';
+import { Route, Switch } from "react-router-dom";
+
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate';
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
 import { LoginTemplate } from './templates/LoginTemplate/LoginTemplate';
-
+import { DetailTemplate } from './templates/DetailTemplate/DetailTemplate';
 import Contact from './pages/Contact/Contact';
 import News from './pages/News/News';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Home from './pages/Home/Home';
 import Detail from './pages/Detail/Detail';
+import DetailMB from './pages/Detail/DetailMB';
 import CheckoutTemplate from './templates/CheckoutTemplate/CheckoutTemplate';
 import Checkout from './pages/Checkout/Checkout';
+import CheckoutMobile from './pages/Checkout/CheckoutMobile';
+import CheckoutIpad from './pages/Checkout/CheckoutIpad';
 import Loading from './components/Loading/Loading';
 import Profiles from './pages/Profiles/Profiles';
 import Films from './pages/Admin/Films/Films';
@@ -42,10 +47,11 @@ function App() {
         <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/contact" exact Component={Contact} />
         <HomeTemplate path="/news" exact Component={News} />
-        <HomeTemplate path="/detail/:id" exact Component={Detail} />
+        <DetailTemplate path="/detail/:id" exact Component={Detail} ComponentMobile={DetailMB} ComponentIpad={DetailMB} />
         <HomeTemplate path="/profile" exact Component={Profiles}/>
         {/* User */}
-        <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} />
+        <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} ComponentMobile={CheckoutMobile} ComponentIpad={CheckoutIpad} />
+        {/* <HomeTemplate path='/phim' component={ApiFunction} componentMobile={DemoApi_mobile} /> */}
         {/* <UserTemplate path="/login" exact Component={Login} /> */}
         <LoginTemplate path="/login" exact Component={Login} />
         {/* <UserTemplate path="/register" exact Component={Register} /> */}

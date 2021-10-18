@@ -1,12 +1,13 @@
 import  React, { Fragment, useEffect, useState } from "react";
 import { Redirect} from "react-router";
-import { Route } from "react-router-dom"
-
+import { Route } from "react-router-dom";
 import { USER_LOGIN } from "../../util/settings/config";
 import Header from "./../HomeTemplate/Layout/Header/Header";
 import Footer from "./../HomeTemplate/Layout/Footer/Footer";
 
-const CheckoutTemplate = (props) => {
+
+
+export const DetailTemplate = (props) => {
     const { Component, ...restProps } = props;
 
     const [state, setState] = useState(3); //1 mobile (ip 6/7 ip 6/7plus), 2 ipad, 3 desktop
@@ -45,10 +46,6 @@ const CheckoutTemplate = (props) => {
 
     })
 
-    if (!localStorage.getItem(USER_LOGIN)) {
-        return <Redirect to="/login" />
-    }
-
     const renderComponent = (propsRoute) => {
         if (state === 3) {
             return <props.Component {...propsRoute} />
@@ -68,14 +65,13 @@ const CheckoutTemplate = (props) => {
 
         return <Fragment>
             <Header {...propsRoute} />
+            <div>
+                {renderComponent(propsRoute)}
+            </div>
 
-            {renderComponent(propsRoute)}
-
-            <Footer  />
-
+            <hr className="mt-10" />
+            <Footer id="footer"/>
 
         </Fragment>
     }} />
 }
-
-export default CheckoutTemplate;
