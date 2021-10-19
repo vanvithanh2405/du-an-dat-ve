@@ -64,8 +64,8 @@ function Checkout(props) {
                         type: DAT_VE,
                         gheDuocChon: ghe
                     })
-                }} disabled={ghe.daDat} className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat} text-center `} key={index}>
-                    {ghe.daDat ? classGheDaDuocDat != '' ? <UserOutlined style={{ marginBottom: 0 }} /> : <CloseOutlined style={{ marginBottom: 0 }} /> : ghe.stt}
+                }} disabled={ghe.daDat} className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat} text-center `}   key={index}>
+                    {classGheDangDat !== '' ? ghe.stt : <Fragment><span className="opacity-0">ghe</span></Fragment>}
                 </button>
 
 
@@ -73,6 +73,13 @@ function Checkout(props) {
                 {(index + 1) % 16 === 0 ? <br /> : ''}
             </Fragment>
         })
+
+
+    }
+    let classBtnDatVe = '';
+
+    if (danhSachGheDangDat.length === 0) {
+        classBtnDatVe = 'disabled';
     }
     return (
         <div className="container-fluid min-h-screen">
@@ -170,7 +177,7 @@ function Checkout(props) {
                             return tongTien += ghe.giaVe;
                         }, 0).toLocaleString()} <span>VND</span>
                     </h4>
-                    <div className="mb-0 h-full flex flex-col items-center" style={{ marginBottom: 0 }} >
+                    <div className={`${classBtnDatVe} mb-0 h-full flex flex-col items-center`} style={{ marginBottom: 0 }} >
                         <div onClick={() => {
                             const thongTinDatVe = new ThongTinDatVe();
                             thongTinDatVe.maLichChieu = props.match.params.id;
@@ -198,9 +205,9 @@ export default function (props) {
 
     return <div className="layoutCha">
         <div className="layoutCSS"></div>
-        
+
         <div className="layoutCon">
-                <Checkout {...props} />
+            <Checkout {...props} />
         </div>
 
     </div>
