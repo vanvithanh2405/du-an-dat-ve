@@ -72,7 +72,7 @@ const MultipleRows = (props) => {
     slidesToShow: 4,
     slidesToScroll: 4,
     speed: 500,
-    rows: 1,
+    rows: 2,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     initialSlide: 0,

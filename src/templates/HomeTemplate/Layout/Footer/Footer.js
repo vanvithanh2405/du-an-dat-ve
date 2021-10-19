@@ -32,15 +32,15 @@ export default function Footer() {
                         <div className="flex flex-col">
                             <span className="text-2xl font-medium text-white mt-4 md:mt-0 mb-2">about.</span>
                             <span className="my-2 mx-auto"><a href="#" className="text-white text-md hover:text-blue-500">Create your feature presentation the modern way & without effort</a></span>
-                            <span className="my-2 " >
-                                <a href="#" className="text-white grid grid-cols-3  space-y-1 text-md hover:text-blue-500">
-                                    {arrHeThongRap.map((hThongRap, index) => {
-                                        return <div key={index}>
-                                            <img src={hThongRap.logo} style={{ width: '35px' }} />
-                                        </div>
-                                    })}
-                                </a>
-                            </span>
+
+                            <a href="#" className="text-white grid grid-cols-3 text-md hover:text-blue-500">
+                                {arrHeThongRap.map((hThongRap, index) => {
+                                    return <div key={index}>
+                                        <img src={hThongRap.logo} style={{ width: '50px' }} />
+                                    </div>
+                                })}
+                            </a>
+
 
                         </div>
                         <div className="flex flex-col">
