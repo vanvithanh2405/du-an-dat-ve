@@ -8,7 +8,7 @@ import Header from "./Layout/Header/Header";
 export const HomeTemplate = (props) => {
     const { Component, ...restRoute } = props;
     useEffect(() => {
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
     })
     return <Route {...restRoute} render={(propsRoute) => { //props.location,props.history.props.match
 
@@ -17,9 +17,9 @@ export const HomeTemplate = (props) => {
             <div>
                 <Component {...propsRoute} />
             </div>
-
-            <Footer id="footer" />
-
+            <div className="mt-5 footer_css">
+                <Footer id="footer" />
+            </div>
         </Fragment>
     }} />
 }

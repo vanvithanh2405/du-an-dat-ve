@@ -1,6 +1,6 @@
 .cumRapcss{
     margin: 3rem auto;
-    width: 80%;
+    width: 75%;
     max-width: 100rem;
     /* border: 1px solid black; */
     border: 1px solid #ebebec;
@@ -20,3 +20,15 @@
 .groupItem{
  
 }  */
+
+.footer_css{
+    margin-top: 8rem!important;
+}
+
+#lichChieu{
+    max-width: 1388px;
+}
+
+#cumRap{
+    max-width: 1388px;
+}

@@ -75,7 +75,7 @@ export default function HomeMenu(props) {
                                         <div className="grid grid-cols-10 gap-y-4 mt-4">
                                             {phim.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
                                                 return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
-                                                    <button className="bg-gray-200  border-black hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-1 px-3 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
+                                                    <button className="bg-gray-200  border-black hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-2 px-2 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
                                                 </NavLink>
                                             })}
                                         </div>
