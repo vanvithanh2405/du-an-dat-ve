@@ -12,3 +12,6 @@ https://www.figma.com/file/Md8pMlMGFGd6iYUFLFm0q4/Wesite-R%E1%BA%A1p-TrangChu?no
 
 #Trello
 https://trello.com/b/y3RWkHLd
+
+#Host
+https://booking-ticket-project-rapgroup.vercel.app/
