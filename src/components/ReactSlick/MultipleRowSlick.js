@@ -65,7 +65,7 @@ const MultipleRows = (props) => {
 
   var settings = {
     className: "center variable-width",
-    centerPadding: "0px",
+    centerPadding: "5px",
     centerMode: true,
     infinite: true,
     autoplay: false,

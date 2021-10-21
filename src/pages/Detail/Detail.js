@@ -13,6 +13,9 @@ import { layThongTinChiTietPhim } from '../../redux/acitons/QuanLyRapAction';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom';
 import { Modal, Button } from 'antd';
+import Swal from 'sweetalert2';
+import { history } from '../../App';
+import { USER_LOGIN } from '../../util/settings/config';
 
 
 
@@ -70,6 +73,20 @@ export default function Detail(props) {
         }, [])
 
         return windowDimensions
+    }
+    const clickMovie = () => {
+        Swal.fire({
+            icon: 'warning',
+            text: 'Bạn chưa đăng nhập! Hãy đăng nhập để tiếp tục',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Đồng Ý!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                history.push('/login');
+            }
+        })
     }
     const { width } = useWindowDimensions();
     return (
@@ -143,9 +160,15 @@ export default function Detail(props) {
                                                     </div>
                                                     <div className="thong_tin_lich_chieu grid grid-cols-9 gap-3">
                                                         {cumRap.lichChieuPhim?.slice(0, 12).map((lichChieu, index) => {
-                                                            return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className="col-span-1 ">
-                                                                <button className="bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-1 px-3 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
-                                                            </NavLink>
+                                                            if (localStorage.getItem(USER_LOGIN)) {
+                                                                return <NavLink className="w-20 px-2 py-2 bg-white text-center hover:bg-gray-600 text-gray-800 font-semibold border border-gray-400 rounded shadow hover:text-black" to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
+                                                                    {moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}
+                                                                </NavLink>
+                                                            } else {
+                                                                return <a onClick={clickMovie} className="w-20 px-1 py-2 bg-white text-center hover:bg-gray-600 text-gray-800 font-semibold border border-gray-400 rounded shadow hover:text-black" key={index}>
+                                                                    {moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}
+                                                                </a>
+                                                            }
                                                         })}
 
                                                     </div>

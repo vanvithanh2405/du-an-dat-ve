@@ -1,6 +1,6 @@
 .cumRapcss{
     margin: 3rem auto;
-    width: 75%;
+    width: 90%;
     max-width: 100rem;
     /* border: 1px solid black; */
     border: 1px solid #ebebec;
@@ -26,9 +26,5 @@
 }
 
 #lichChieu{
-    max-width: 1388px;
-}
-
-#cumRap{
     max-width: 1388px;
 }
