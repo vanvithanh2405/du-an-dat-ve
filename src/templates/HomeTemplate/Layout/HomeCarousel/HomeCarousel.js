@@ -83,7 +83,7 @@ export default function HomeCarousel(props) {
                 <div className="infoPoster">
                     <h1 className="tenPhim1">AquaMan</h1>
                     <h4>31/10/2021</h4>
-                    <div className="moTa">
+                    <div className="moTa ">
                     <p>Lorem, ipsum doloe sit amet, consestetur adipiscing elit, Nec vitae aliquet non dipretium, tempus. Et nunc quis sed et, risus purus massa. </p>
                     </div>
                 </div>

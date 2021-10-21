@@ -53,6 +53,57 @@
     height: 200px;
     width: 350px;
     text-align: justify;
+    display: block;
+}
+
+
+/* mobile */
+
+@media(max-width:800px) {
+    .infoPoster .moTa {
+        display: none;
+    }
+    .infoPoster .tenPhim1 {
+        font-size: 40px;
+    }
+    .infoPoster .tenPhim3 {
+        font-size: 40px;
+    }
+    .infoPoster .tenPhim4 {
+        font-size: 40px;
+    }
+    .infoPoster .tenPhim2 {
+        font-size: 50px;
+    }
+    .infoPoster h4 {
+        font-size: 15px;
+        font-weight: 300;
+        padding: 10px 0;
+    }
+}
+
+@media(max-width:500px) {
+    .infoPoster .tenPhim1 {
+        font-size: 25px;
+        padding-top: 20px;
+    }
+    .infoPoster .tenPhim3 {
+        padding-top: 20px;
+        font-size: 25px;
+    }
+    .infoPoster .tenPhim4 {
+        padding-top: 20px;
+        font-size: 25px;
+    }
+    .infoPoster .tenPhim2 {
+        padding-top: 20px;
+        font-size: 30px;
+    }
+    .infoPoster h4 {
+        font-size: 10px;
+        font-weight: 300;
+        padding: 5px 0;
+    }
 }
 
 .infoPoster h4 {
