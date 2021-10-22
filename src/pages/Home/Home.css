@@ -19,7 +19,26 @@
 }
                     
 .carouselBG{margin-top:-1050px;}
+/* ipad */
+@media (max-width:1023px){
+    .carouselBG{
+        margin-top:-590px;
+    }
+    .BG_carausel{
+        height: 450px;
+    }
 
+}
+@media (max-width:500px){
+    .carouselBG{
+        margin-top:-420px;
+    }
+    .BG_carausel{
+        height: 300px;
+        margin-top:4rem;
+    }
+
+}
 
 .footer_css{
     margin-top: 8rem!important;

@@ -142,12 +142,12 @@
 @media (max-width:500px) {
     .main {
         margin-top: 20px !important;
-        height: 350px !important;
-        width: 250px !important;
+        height: 250px !important;
+        width: 170px !important;
     }
     .backimg {
         height: 250px !important;
-        width: 230px !important;
+        width: 170px !important;
     }
     .head1 {
         display: none !important;
@@ -163,8 +163,14 @@
     }
     .title {
     opacity: 1;
+    opacity: 1;
+    width: 170px !important;
+    height: 80px;
+    display: flex;
+    justify-content: center;
     }
     .fa-play {
     opacity: 1;
+    margin: 30px !important;
     }
 }

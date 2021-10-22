@@ -102,13 +102,12 @@ const MultipleRows = (props) => {
         breakpoint: 450,
         settings: {
           centerPadding: "0px",
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           initialSlide: 2,
           nextArrow: false,
           prevArrow: false,
           dots: false,
-
           rows: 1,
         }
       },
