@@ -26,7 +26,8 @@ export default function Home(props) {
         <div>
             <HomeCarousel />
             <section className="text-gray-600 body-font">
-                    <div className="container px-0 py-20 mx-auto" id="lichChieu" >
+                    <div className="BG_carausel"></div>
+                    <div className="carouselBG container px-0 py-20 mx-auto" id="lichChieu" >
                         <MultipleRows arrFilm={arrFilm} />
                         </div>
             </section>

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Film.scss'
 import moment from 'moment';
 import { history } from './../../App';
@@ -49,15 +49,16 @@ export default function Film(props) {
 	}
 	return (
 		<div className="main  imgCard" >
-			<img src={item.hinhAnh} className="backimg cursor-pointer" style={{ paddingTop: '10px' }} onClick={() => {
+			<div className="item_Img">
+				<img src={item.hinhAnh} className="backimg cursor-pointer" style={{ paddingTop: '10px' }} onClick={() => {
 					history.push(`/detail/${item.maPhim}`);
-				}}/>
-			<div onClick={()=>showModal()}>
-				<i className="fa fa-play hover:scale-110 motion-reduce:transform-none" />
-			</div>	
-			<div className="title">
-				<p>{item.tenPhim.length > 20 ? <span>{item.tenPhim.slice(0, 20)}...</span> : <span>{item.tenPhim}</span>}</p>
+				}} />
+				<div onClick={() => showModal()}>
+					<i className="fa fa-play hover:scale-110 motion-reduce:transform-none" />
+				</div>
 			</div>
+			<div className="title">
+				<p className="text-center">{item.tenPhim.length > 20 ? <span>{item.tenPhim.slice(0, 20)}...</span> : <span>{item.tenPhim}</span>}</p>
 			<div className="head1">
 				<div className="date">
 					<p>Ngày & giờ </p>
@@ -77,8 +78,13 @@ export default function Film(props) {
 			<div className="head3 text-center">
 				<button className="btn btn-secondary opacity-30 hover:opacity-100 font-medium" onClick={() => {
 					history.push(`/detail/${item.maPhim}`);
+				}}>CHI TIẾT</button>
+			</div></div>
+			{/* <div className="head3 text-center">
+				<button className="btn btn-secondary opacity-30 hover:opacity-100 font-medium" onClick={() => {
+					history.push(`/detail/${item.maPhim}`);
 				}}>XEM CHI TIẾT</button>
-			</div>
+			</div> */}
 			<Modal visible={isModalVisible} centered width={1000}
 				style={{ width: (width / 100) }} footer onOk={handleOk} onCancel={handleCancel}>
 				<iframe style={{ width: '100%' }} height="500px" src={convertLink(item.trailer)}></iframe>

@@ -72,7 +72,7 @@ const MultipleRows = (props) => {
     slidesToShow: 4,
     slidesToScroll: 4,
     speed: 500,
-    rows: 1,
+    rows: 2,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     initialSlide: 0,
@@ -84,7 +84,6 @@ const MultipleRows = (props) => {
           centerPadding: "1px",
           slidesToScroll: 2,
           infinite: true,
-          dots: true,
           rows: 1,
         }
       },
@@ -117,23 +116,26 @@ const MultipleRows = (props) => {
   };
 
   return (
-    <div className="text-left">
-      <button type="button" className={phimDangChieu ? `active_Film` : `none_active_Film`} onClick={() => {
-        const action = { type: SET_FILM_DANG_CHIEU }
-        dispatch(action);
-        setPhimDangChieu(true);
-        setPhimSapChieu(false);
-      }}>Phim Đang Chiếu</button>
-      <button type="button" className={!phimSapChieu ? `none_active_Film` : `active_Film`} onClick={() => {
-        const action = { type: SET_FILM_SAP_CHIEU }
-        dispatch(action);
-        setPhimSapChieu(true);
-        setPhimDangChieu(false);
-      }}>Phim Sắp Chiếu</button>
-      <Slider {...settings}>
-        {renderFilm()}
-      </Slider>
-    </div>
+    
+      
+      <div className="text-left">
+        <button type="button" className={phimDangChieu ? `active_Film` : `none_active_Film`} onClick={() => {
+          const action = { type: SET_FILM_DANG_CHIEU }
+          dispatch(action);
+          setPhimDangChieu(true);
+          setPhimSapChieu(false);
+        }}>Phim Đang Chiếu</button>
+        <button type="button" className={!phimSapChieu ? `none_active_Film` : `active_Film`} onClick={() => {
+          const action = { type: SET_FILM_SAP_CHIEU }
+          dispatch(action);
+          setPhimSapChieu(true);
+          setPhimDangChieu(false);
+        }}>Phim Sắp Chiếu</button>
+        <Slider {...settings}>
+          {renderFilm()}
+        </Slider>
+      </div>
+
   );
 }
 

@@ -6,21 +6,21 @@
 .main {
     display: block;
     margin: auto;
-    margin-top: 100px;
-    border-radius: 5px;
-    height: 515px;
-    width: 300px;
+    margin-top: 50px;
+    height: 375px;
+    width: 255px;
     background: white;
     // box-shadow: 0px 20px 100px rgba(0,0,0,0.1);
     box-shadow: 2px 2px 15px 4px rgb(0 0 0 / 34%);
 }
 
 .backimg {
-    height: 320px;
-    width: 280px;
-    margin-left: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
+    height: 375px;
+    width: 255px;
+    // margin-left: 10px;
+    // margin-top: 10px;
+    padding-top: 0px !important;
+    position: relative;
 }
 
 .movie-cover {
@@ -28,27 +28,44 @@
     margin-left: 20px;
     height: 130px;
     margin-top: -70px;
-    border-radius: 5px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
 .fa-play {
-    margin-top: -31px;
-    font-size: 2rem;
-    background: gray;
-    opacity: 0.8;
+    margin: 85px 73px !important;
+    font-size: 5rem;
+    position: absolute;
+    opacity: 0;
+    top: 0;
     color: white;
-    border-radius: 60px;
     padding: 15px;
-    margin-left: 115px;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
 }
 
-.fa-play:hover {
+.imgCard:hover .fa-play {
     transform: scale(1.2);
     opacity: 1;
-    background: #3d3d3d;
+}
+
+.item_Img {
+    position: relative;
+}
+
+.imgCard:hover .title {
+    opacity: 1;
+    transition: all 0.3s;
+}
+
+.title {
+    position: absolute;
+    background: white;
+    width: 255px;
+    bottom: 6px;
+    height: 135px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s;
 }
 
 .title p {
@@ -56,19 +73,20 @@
     margin-left: 15px;
     margin-top: 6px;
     font-size: 1.25rem;
+    font-weight:500;
     font-family: sans-serif;
 }
 
 .head1 {
     display: flex;
-    height: 30px;
-    width: 270px;
-    margin-top: 50px;
-    margin-left: 21px;
+    height: 20px;
+    width: 255px;
+    margin-top: 30px;
+    // margin-left: 21px;
 }
 
 .head1 .rate {
-    margin-left: 8.5rem;
+    margin-left: 10.5rem;
 }
 
 .head1 p {
@@ -80,13 +98,13 @@
 .head2 {
     display: flex;
     height: 30px;
-    width: 270px;
+    width: 255px;
     margin-top: 0px;
-    margin-left: 21px;
+    // margin-left: 21px;
 }
 
 .head2 .rate {
-    margin-left: 9.5rem;
+    margin-left: 10.5rem;
 }
 
 .head2 p {
@@ -106,9 +124,11 @@
 }
 
 .head3 .btn {
+    margin:10px;
     opacity: 0.25;
     transition: all .2s ease-in-out;
     border: none;
+    border-radius:0;
 }
 
 .head3 .btn:hover {
@@ -140,5 +160,11 @@
     }
     .fa-play {
         margin-left: 97px !important;
+    }
+    .title {
+    opacity: 1;
+    }
+    .fa-play {
+    opacity: 1;
     }
 }
