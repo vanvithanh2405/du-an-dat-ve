@@ -64,7 +64,7 @@ export default function HomeMenu(props) {
                             {cumRap.danhSachPhim.map((phim, index) => {
                                 return <Fragment key={index}>
                                     <div className="my-auto dsPhim">
-                                        <div style={{ display: 'flex',alignItems:'center' }} className="mt-4 ">
+                                        <div style={{ display: 'flex', alignItems: 'center' }} className="mt-4 ">
                                             <img style={{ height: 120, width: 90 }} src={phim.hinhAnh} alt={phim.hinhAnh} />
                                             <div className="ml-10">
                                                 <h2 className=" text-2xl font-semibold ">{phim.tenPhim}</h2>
@@ -72,11 +72,17 @@ export default function HomeMenu(props) {
 
                                             </div>
                                         </div>
-                                        <div className="grid grid-cols-10 gap-y-4 mt-4">
+                                        <div className="grid grid-cols-10 gap-x-1 gap-y-4  mt-3">
                                             {phim.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
-                                                return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
-                                                    <button className="bg-gray-200  border-black hover:bg-gray-500 text-gray-500 hover:text-white font-semibold py-2 px-2 rounded-lg">{moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}</button>
-                                                </NavLink>
+                                                if (localStorage.getItem(USER_LOGIN)) {
+                                                    return <NavLink className="w-20 px-2 py-2 bg-white text-center hover:bg-gray-600 text-gray-800 font-semibold border border-gray-400 rounded shadow hover:text-black" to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
+                                                        {moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}
+                                                    </NavLink>
+                                                } else {
+                                                    return <a onClick={clickMovie}  className="w-20 px-1 py-2 bg-white hover:bg-gray-600 text-center text-gray-800 font-semibold border border-gray-400 rounded shadow hover:text-black" key={index}>
+                                                        {moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}
+                                                    </a>
+                                                }
                                             })}
                                         </div>
                                     </div>
@@ -137,10 +143,10 @@ export default function HomeMenu(props) {
                                                         if (indexssss <= 6) {
                                                             if (localStorage.getItem(USER_LOGIN)) {
                                                                 return <NavLink className="movieTime" to={`/checkout/${ds.maLichChieu}`} key={index}>
-                                                                    {moment(ds.ngayChieuGioChieu).format('hh:mm A')}
+                                                                    {moment(ds.ngayChieuGioChieu).format('HH:MM')}
                                                                 </NavLink>
                                                             } else {
-                                                                return <a onClick={`/checkout/${ds.maLichChieu}`} className="movieTime"  key={index}>
+                                                                return <a onClick={clickMovie} className="movieTime" key={index}>
                                                                     {moment(ds.ngayChieuGioChieu).format('HH:MM')}
                                                                 </a>
                                                             }
