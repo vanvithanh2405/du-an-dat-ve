@@ -35,11 +35,12 @@
 
 @media (max-width:500px) {
     .carouselBG {
-        margin-top: -420px;
+        margin-top: -330px;
     }
     .BG_carausel {
-        height: 300px;
-        margin-top: 4rem;
+        height: 150px;
+        margin-top: 8rem;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
     }
     .cumRapcss {
         width: 85% !important;

@@ -163,15 +163,16 @@
     }
     .title {
         opacity: 1;
-        opacity: 1;
         width: 170px !important;
         height: 80px;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
     .fa-play {
-        opacity: 1;
-        margin: 30px !important;
+        opacity: 0.5;
+        font-size: 46px;
+        margin: 48px !important;
     }
     .title p {
         margin-left: 0 !important;
