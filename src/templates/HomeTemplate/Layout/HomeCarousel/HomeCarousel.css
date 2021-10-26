@@ -5,6 +5,12 @@
 
 .imgPoster {
     position: relative;
+    display: block !important;
+}
+
+.imgMBPoster {
+    position: relative;
+    display: none !important;
 }
 
 .infoPoster {
@@ -90,6 +96,9 @@
     .infoPoster .tenPhim3 {
         padding-top: 20px;
         font-size: 25px;
+        background: -webkit-linear-gradient(#3bb9c8, rgb(184, 252, 244));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     .infoPoster .tenPhim4 {
         padding-top: 20px;
@@ -98,11 +107,23 @@
     .infoPoster .tenPhim2 {
         padding-top: 20px;
         font-size: 30px;
+        background: -webkit-linear-gradient(#1efa25, rgb(226 255 235));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     .infoPoster h4 {
-        font-size: 10px;
-        font-weight: 300;
-        padding: 5px 0;
+        font-size: 13px !important;
+        padding: 5px 0 !important;
+        color: white;
+    }
+    .imgPoster {
+        display: none !important;
+    }
+    .imgMBPoster {
+        display: block !important;
+    }
+    .infoPoster {
+        left: 230px;
     }
 }
 
@@ -110,4 +131,17 @@
     font-size: 20px;
     font-weight: 300;
     padding: 15px 0;
+}
+
+.ant-carousel .slick-dots li button {
+    display: none !important;
+}
+
+.slick-dots li button:before {
+    display: none;
+}
+
+.ant-carousel .slick-slider .slick-track,
+.ant-carousel .slick-slider .slick-list {
+    padding: 0 !important;
 }

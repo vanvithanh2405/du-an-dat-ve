@@ -63,7 +63,7 @@ export default function Header(props) {
 
     return (
         <header id="myP" style={{ position: 'fixed' }} className="p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-0 bg-black text-black fixed w-screen z-10 ">
-            <div className="container flex justify-between h-16 mx-auto">
+            <div className="container-fuild flex justify-between h-16 mx-auto">
                 <div className="flex justify-center items-center font-base ">
                     <NavLink to='/' aria-label="Back to homepage" className="flex items-center py-2 pr-2 mr-7">
                         <img className="logo" src={logoBlack} alt="cyberlearn.vn" />

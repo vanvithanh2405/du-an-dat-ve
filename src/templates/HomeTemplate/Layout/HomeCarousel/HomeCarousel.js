@@ -7,6 +7,10 @@ import img1 from './../../../../imgRap/POSTER/POSTER 1.JPG';
 import img2 from './../../../../imgRap/POSTER/POSTER 2.JPG';
 import img3 from './../../../../imgRap/POSTER/POSTER 3.JPG';
 import img4 from './../../../../imgRap/POSTER/POSTER 4.JPG';
+import imgMB1 from './../../../../imgRap/POSTER/PosterMB-1.JPG';
+import imgMB2 from './../../../../imgRap/POSTER/PosterMB-2.JPG';
+import imgMB3 from './../../../../imgRap/POSTER/PosterMB-3.JPG';
+import imgMB4 from './../../../../imgRap/POSTER/PosterMB-4.JPG';
 
 // Css
 import './HomeCarousel.css'
@@ -70,6 +74,7 @@ export default function HomeCarousel(props) {
             {/* {SampleNextArrow()} */}
             <div style={{ contentStyle }}>
                 <img src={img1} className="imgPoster opacity-1 w-full h-full" alt={img1} />
+                <img src={imgMB1} className="imgMBPoster opacity-1 w-full h-full" alt={img1} />
                 <div className="infoPoster">
                     <h1 className="tenPhim4">IT <br/> Chú hề ma quái</h1>
                     <h4>18/10/2021</h4>
@@ -80,6 +85,7 @@ export default function HomeCarousel(props) {
             </div>
             <div style={{ contentStyle }}>
                 <img src={img2} className="imgPoster opacity-1 w-full h-full" alt={img2} />
+                <img src={imgMB2} className="imgMBPoster opacity-1 w-full h-full" alt={img2} />
                 <div className="infoPoster">
                     <h1 className="tenPhim1">AquaMan</h1>
                     <h4>31/10/2021</h4>
@@ -91,6 +97,7 @@ export default function HomeCarousel(props) {
             </div>
             <div style={{ contentStyle }}>
                 <img src={img3} className="imgPoster opacity-1 w-full h-full" alt={img3} />
+                <img src={imgMB3} className="imgMBPoster opacity-1 w-full h-full" alt={img3} />
                 <div className="infoPoster">
                     <h1 className="tenPhim2 bg-gradient-to-r from-gray-200 to-blue-300">Frozen</h1>
                     <h4>11/11/2021</h4>
@@ -102,6 +109,7 @@ export default function HomeCarousel(props) {
             </div>
             <div style={{ contentStyle }}>
                 <img src={img4} className="imgPoster opacity-1 w-full h-full" alt={img4} />
+                <img src={imgMB4} className="imgMBPoster opacity-1 w-full h-full" alt={img4} />
                 <div className="infoPoster">
                     <h1 className="tenPhim3">Avengers <br/> Infinity War</h1>
                     <h4>20/11/2021</h4>
