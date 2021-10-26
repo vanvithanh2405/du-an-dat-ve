@@ -49,12 +49,9 @@ function App() {
         {/* Home */}
         <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/contact" exact Component={Contact} />
-<<<<<<< HEAD
         <HomeTemplate path="/profile" exact Component={Profiles} />
-=======
-        <HomeTemplate path="/news" exact Component={News} />
         <CheckoutTemplate path="/profile" exact Component={Profiles} ComponentMobile={ProfilesMB} ComponentIpad={ProfilesIpad} />
->>>>>>> e88f832748de44b4bc9c009109b61d91a73bb4ba
+
         {/* Detail */}
         <DetailTemplate path="/detail/:id" exact Component={Detail} ComponentMobile={DetailMobile} ComponentIpad={DetailIpad} />
         {/* User */}

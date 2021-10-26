@@ -52,19 +52,10 @@ export default function Film(props) {
 			<div className="item_Img">
 				<img src={item.hinhAnh} className="backimg cursor-pointer" style={{ paddingTop: '10px' }} onClick={() => {
 					history.push(`/detail/${item.maPhim}`);
-<<<<<<< HEAD
-				}}/>
-			<div onClick={()=>showModal()}>
-				<i className="fa fa-play hover:scale-110 motion-reduce:transform-none" />
-			</div>	
-			<div className="title">
-				<p>{item.tenPhim.length > 23 ? <span>{item.tenPhim.slice(0, 23)}...</span> : <span>{item.tenPhim}</span>}</p>
-=======
 				}} />
 				<div onClick={() => showModal()}>
 					<i className="fa fa-play hover:scale-110 motion-reduce:transform-none" />
 				</div>
->>>>>>> e88f832748de44b4bc9c009109b61d91a73bb4ba
 			</div>
 			<div className="title">
 				<p className="text-center">{item.tenPhim.length > 20 ? <span>{item.tenPhim.slice(0, 20)}...</span> : <span>{item.tenPhim}</span>}</p>
