@@ -9,7 +9,7 @@ import { UserTemplate } from './templates/UserTemplate/UserTemplate';
 import { LoginTemplate } from './templates/LoginTemplate/LoginTemplate';
 import DetailTemplate from "./templates/DetailTemplate/DetailTemplate";
 import Contact from './pages/Contact/Contact';
-import News from './pages/News/News';
+// import News from './pages/News/News';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Home from './pages/Home/Home';
@@ -48,7 +48,6 @@ function App() {
         {/* Home */}
         <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/contact" exact Component={Contact} />
-        <HomeTemplate path="/news" exact Component={News} />
         <HomeTemplate path="/profile" exact Component={Profiles} />
         {/* Detail */}
         <DetailTemplate path="/detail/:id" exact Component={Detail} ComponentMobile={DetailMobile} ComponentIpad={DetailIpad} />

@@ -56,7 +56,7 @@ export default function Film(props) {
 				<i className="fa fa-play hover:scale-110 motion-reduce:transform-none" />
 			</div>	
 			<div className="title">
-				<p>{item.tenPhim.length > 20 ? <span>{item.tenPhim.slice(0, 20)}...</span> : <span>{item.tenPhim}</span>}</p>
+				<p>{item.tenPhim.length > 23 ? <span>{item.tenPhim.slice(0, 23)}...</span> : <span>{item.tenPhim}</span>}</p>
 			</div>
 			<div className="head1">
 				<div className="date">

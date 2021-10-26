@@ -65,17 +65,14 @@ const MultipleRows = (props) => {
 
   var settings = {
     className: "center variable-width",
-    centerPadding: "5px",
-    centerMode: true,
     infinite: true,
-    autoplay: false,
+    speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
-    speed: 500,
+    initialSlide: 0,
     rows: 2,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
