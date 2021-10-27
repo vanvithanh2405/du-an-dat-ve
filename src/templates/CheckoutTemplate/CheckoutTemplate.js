@@ -19,7 +19,7 @@ const CheckoutTemplate = (props) => {
             if (innerWidth <= 500) {
                 setState(1);
             }
-            else if (innerWidth <= 800) {
+            else if (innerWidth <= 1024) {
                 setState(2);
             }
             else {
