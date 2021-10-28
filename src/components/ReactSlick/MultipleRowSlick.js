@@ -6,7 +6,6 @@ import { SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU } from "../../redux/types/QuanL
 // import FilmFlip from "../Film/FilmFlip/FilmFlip";
 import {  LeftOutlined, RightOutlined  } from '@ant-design/icons';
 // Css MultipleRowSlick
-import styleSlick from './MultipleRowSlick.module.css';
 import './MultipleRowSlick.scss';
 import Film from "../Film/Film";
 
@@ -84,7 +83,7 @@ const MultipleRows = (props) => {
           centerPadding: "1px",
           slidesToScroll: 2,
           infinite: true,
-          rows: 1,
+          rows: 2,
         }
       },
       {

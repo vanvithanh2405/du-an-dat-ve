@@ -13,6 +13,7 @@ import { UserOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom';
 import { history } from '../../App';
 import { TOKEN, USER_LOGIN } from '../../util/settings/config';
+import Swal from 'sweetalert2';
 
 
 function Checkout(props) {
@@ -81,6 +82,7 @@ function Checkout(props) {
     if (danhSachGheDangDat.length === 0) {
         classBtnDatVe = 'disabled';
     }
+
     return (
         <div className="container-fluid min-h-screen">
             <div className="grid grid-cols-12 mt-2 mb-5">
@@ -182,7 +184,6 @@ function Checkout(props) {
                             const thongTinDatVe = new ThongTinDatVe();
                             thongTinDatVe.maLichChieu = props.match.params.id;
                             thongTinDatVe.danhSachVe = danhSachGheDangDat;
-
                             console.log('thongTinDatVe', thongTinDatVe);
                             const action = DatVeAction(thongTinDatVe);
                             dispatch(action)

@@ -48,9 +48,9 @@ export default function Film(props) {
 			: null;
 	}
 	return (
-		<div className="main  imgCard" >
+		<div className="main imgCard" >
 			<div className="item_Img">
-				<img src={item.hinhAnh} className="backimg cursor-pointer" style={{ paddingTop: '10px' }} onClick={() => {
+				<img src={item.hinhAnh} className="backimg cursor-pointer" style={{ paddingTop: '10px' }} alt={item.hinhAnh} onClick={() => {
 					history.push(`/detail/${item.maPhim}`);
 				}} />
 				<div onClick={() => showModal()}>
