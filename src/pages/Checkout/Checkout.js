@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import _, { startCase } from 'lodash'
+import _ from 'lodash'
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { DatVeAction, LayChiTietPhongVeAction } from '../../redux/acitons/QuanLyDatVeAction';
@@ -9,7 +9,7 @@ import { ThongTinDatVe } from './../../_core/models/ThongTinDatVe'
 import checkoutStyle from './Checkout.module.css';
 import './Checkout.css'
 // Antd
-import { UserOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
+import { CheckOutlined } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom';
 import { history } from '../../App';
 import { TOKEN, USER_LOGIN } from '../../util/settings/config';
@@ -176,7 +176,7 @@ function Checkout(props) {
 
                     <hr />
 
-                    <h5 className="pt-3 text-xl text-center">Thông tin người đặt</h5>
+                    <h5 className="pt-3 text-xl text-center">THÔNG TIN NGƯỜI ĐẶT</h5>
 
                     <div className="text-lg my-3">
                         <i className="font-medium">Email: </i>
@@ -193,7 +193,7 @@ function Checkout(props) {
                     </div>
                     <hr />
                     <h5 className="pt-3 text-xl">Thành Tiền:</h5>
-                    <h4 className="text-center text-2xl text-green-400">
+                    <h4 className="text-center font-semibold text-2xl text-green-400">
                         {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
                             return tongTien += ghe.giaVe;
                         }, 0).toLocaleString()} <span>VND</span>
@@ -220,9 +220,7 @@ function Checkout(props) {
 
 
 export default function (props) {
-
     // const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
-
     return <div className="layoutCha">
         <div className="layoutCSS"></div>
 
