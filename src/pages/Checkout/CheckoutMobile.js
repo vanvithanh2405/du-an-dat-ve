@@ -10,6 +10,8 @@ import checkoutStyle from './Checkout.module.css';
 import './Checkout.css'
 // Antd
 import { UserOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
+import Swal from 'sweetalert2';
+import { history } from '../../App';
 
 
 
@@ -31,6 +33,18 @@ function CheckoutMobile(props) {
 
     console.log({ chiTietPhongVe });
 
+    const clickTicket = () => {
+        Swal.fire({
+          icon: "success",
+          title: "ĐẶT VÉ THÀNH CÔNG",
+          confirmButtonText: "Xác nhận",
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            history.push("/profile");
+          }
+        });
+      };
 
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe
 
@@ -131,7 +145,7 @@ function CheckoutMobile(props) {
                             const thongTinDatVe = new ThongTinDatVe();
                             thongTinDatVe.maLichChieu = props.match.params.id;
                             thongTinDatVe.danhSachVe = danhSachGheDangDat;
-
+                            clickTicket()
                             console.log('thongTinDatVe', thongTinDatVe);
                             const action = DatVeAction(thongTinDatVe);
                             dispatch(action)

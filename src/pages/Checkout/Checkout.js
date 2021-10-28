@@ -32,7 +32,19 @@ function Checkout(props) {
         dispatch(action);
     }, [])
 
-    console.log({ chiTietPhongVe });
+    const clickTicket = () => {
+        Swal.fire({
+            icon: 'success',
+            title: 'ĐẶT VÉ THÀNH CÔNG',
+            confirmButtonText: 'Xác nhận',
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                history.push('/profile');
+            }
+        })
+    }
+    
 
 
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe
@@ -65,7 +77,7 @@ function Checkout(props) {
                         type: DAT_VE,
                         gheDuocChon: ghe
                     })
-                }} disabled={ghe.daDat} className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat} text-center `}   key={index}>
+                }} disabled={ghe.daDat} className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat} text-center `} key={index}>
                     {classGheDangDat !== '' ? ghe.stt : <Fragment><span className="opacity-0">ghe</span></Fragment>}
                 </button>
 
@@ -141,32 +153,39 @@ function Checkout(props) {
                     <p className="text-base pt-3">Địa điểm: <span className="font-semibold">{thongTinPhim.tenCumRap} - {thongTinPhim.tenRap}</span></p>
                     <p className="text-base">Ngày chiếu : <span className="font-semibold">{thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu}</span></p>
                     <hr />
-                    <div className="grid grid-cols-2 my-3">
-                        <div>
-                            <span className="text-red-400 text-xl font-semibold">Ghế: </span>
-                            {_.sortBy(danhSachGheDangDat, ['stt']).map((gheDD, index) => {
-                                return <span key={index} className="text-green-500 text-xl mr-2">{gheDD.stt}</span>
-                            })}
-                        </div>
-                        <div className="text-right">
-                            <span className="text-green-400 text-xl font-semibold">
-                                {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
-                                    return tongTien += ghe.giaVe;
-                                }, 0).toLocaleString()} <label>VND</label>
-                            </span>
-                        </div>
+                    <div className="scroll__bar__custom" style={{ overflow: 'auto', height: 300, }}>
+                        <table className="table-fixed w-full text-center">
+                            <thead>
+                                <tr className="" style={{ fontSize: 20 }}>
+                                    <th className="w-1/3 text-red-400 text-lg">Số ghế</th>
+                                    <th className="w-1/3 text-red-400 text-lg">Loại ghế</th>
+                                    <th className="w-1/2 text-green-400 text-lg">Giá vé</th>
+                                </tr>
+                            </thead>
+                            <tbody className="">
+                                {_.sortBy(danhSachGheDangDat, ['maGhe', 'loaiGhe']).map((gheDangDat, index) => {
+                                    return <tr key={index}>
+                                        <td className="text-lg font-medium">[{gheDangDat.tenGhe}]</td>
+                                        <td className="text-lg font-medium">{gheDangDat.loaiGhe}</td>
+                                        <td className="text-lg font-medium">{gheDangDat.giaVe.toLocaleString()}VND</td>
+                                    </tr>
+                                })}
+                            </tbody>
+                        </table>
                     </div>
+
                     <hr />
+
                     <h5 className="pt-3 text-xl text-center">Thông tin người đặt</h5>
 
                     <div className="text-lg my-3">
-                        <i>Email: </i>
+                        <i className="font-medium">Email: </i>
                         {userLogin.email}
                         {/* {userLogin.email.length > 15 ? userLogin.email.substr(0, 15) + '...' : userLogin.email} */}
 
                     </div>
                     <div className="text-lg my-3">
-                        <i>Phone: </i>
+                        <i className="font-medium">Phone: </i>
                         {userLogin.soDT}
                         {/* {userLogin.soDT.length > 15 ? userLogin.soDT.substr(0, 15) + '...' : userLogin.soDT} */}
 
@@ -181,13 +200,13 @@ function Checkout(props) {
                     </h4>
                     <div className={`${classBtnDatVe} mb-0 h-full flex flex-col items-center`} style={{ marginBottom: 0 }} >
                         <div onClick={() => {
+                            clickTicket();
                             const thongTinDatVe = new ThongTinDatVe();
                             thongTinDatVe.maLichChieu = props.match.params.id;
                             thongTinDatVe.danhSachVe = danhSachGheDangDat;
                             console.log('thongTinDatVe', thongTinDatVe);
                             const action = DatVeAction(thongTinDatVe);
-                            dispatch(action)
-
+                            dispatch(action);
                         }} className="bg-gray-600 hover:bg-gray-800 text-white w-3/4 text-center py-3 font-semibold text-lg cursor-pointer">
                             ĐẶT VÉ
                         </div>

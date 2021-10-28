@@ -9,6 +9,11 @@ import { layThongTinDatVeAction, layThongTinNguoiDungAction } from '../../redux/
 import moment from 'moment';
 import _ from 'lodash';
 
+
+
+
+
+
 export default function Profiles(props) {
     const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
     console.log('userLogin: ', userLogin);
@@ -95,7 +100,7 @@ function KetQuaDatVe(props) {
     console.log('thongTinNguoiDung', thongTinNguoiDung)
 
     const renderTicketItem = () => {
-
+        
         return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
             const seats = _.first(ticket.danhSachGhe)
             return <div className="p-2 lg:w-1/3 md:w-1/2 w-full text-base" key={index}>
@@ -104,7 +109,9 @@ function KetQuaDatVe(props) {
                         <h2 className="text-gray-900 title-font font-medium tenPhim">{ticket.tenPhim}</h2>
                         <span className="diaDiem">{seats.tenHeThongRap} / {seats.tenRap}</span>
                         <p className="text-gray-500 gioChieu">{moment(ticket.ngayDat).format('DD-MM-YYYY')} / {moment(ticket.ngayDat).format('HH:MM')}  </p>
-
+                        <p className="text-gray-500">Tên Rạp: {seats.tenCumRap} - Ghế {ticket.danhSachGhe.map((ghe, index) => {
+                            return <span key={index}> [{ghe.tenGhe}] </span>
+                        })}</p>
                     </div>
                 </div>
             </div>
