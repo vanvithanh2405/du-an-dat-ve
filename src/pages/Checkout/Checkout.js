@@ -153,7 +153,7 @@ function Checkout(props) {
                     <p className="text-base pt-3">Địa điểm: <span className="font-semibold">{thongTinPhim.tenCumRap} - {thongTinPhim.tenRap}</span></p>
                     <p className="text-base">Ngày chiếu : <span className="font-semibold">{thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu}</span></p>
                     <hr />
-                    <div className="scroll__bar__custom" style={{ overflow: 'auto', height: 300, }}>
+                    <div className="scroll__bar__custom pt-2" style={{ overflow: 'auto', height: 300, }}>
                         <table className="table-fixed w-full text-center">
                             <thead>
                                 <tr className="" style={{ fontSize: 20 }}>
