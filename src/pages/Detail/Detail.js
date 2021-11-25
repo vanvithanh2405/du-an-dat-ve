@@ -158,7 +158,7 @@ export default function Detail(props) {
                                                             <p style={{ marginTop: 0 }} className="text-sm font-medium">{cumRap.diaChi}</p>
                                                         </div>
                                                     </div>
-                                                    <div className="thong_tin_lich_chieu grid grid-cols-9 gap-3">
+                                                    <div className="thong_tin_lich_chieu grid grid-cols-9 gap-3" style={{marginTop: '5px'}}>
                                                         {cumRap.lichChieuPhim?.slice(0, 12).map((lichChieu, index) => {
                                                             if (localStorage.getItem(USER_LOGIN)) {
                                                                 return <NavLink className="w-20 px-2 py-2 bg-white text-center hover:bg-gray-600 text-gray-800 font-semibold border border-gray-400 rounded shadow hover:text-black" to={`/checkout/${lichChieu.maLichChieu}`} key={index}>

@@ -18,7 +18,7 @@ export const HomeTemplate = (props) => {
                 <Component {...propsRoute} />
             </div>
             <div className="mt-5 footer_css">
-                <Footer id="footer" />
+                <Footer id="footer" {...propsRoute} />
             </div>
         </Fragment>
     }} />

@@ -67,8 +67,6 @@ const dispatch = useDispatch()
     })
 
     return (
-
-        
         <section className="forms-section">
         <Link to="/">
             <img className="logoLogin" src={logoW} alt="logo" />
@@ -102,6 +100,7 @@ const dispatch = useDispatch()
               Sign Up
               <span className="underline" />
             </button>
+            
             <form className="form form-signup" onSubmit={formikDangKy.handleSubmit}>
               <fieldset>
                 <legend>Đăng ký bằng cách điền thông tin cá nhân theo yêu cầu.</legend>
@@ -148,7 +147,7 @@ const dispatch = useDispatch()
                         </select>
                     </div>
               </fieldset>
-              <button type="submit" className="btn-signup">Continue</button>
+              <button type="submit" className="btn-signup">Đăng ký</button>
             </form>
           </div>
         </div>

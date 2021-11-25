@@ -10,7 +10,6 @@ export const LoginTemplate=(props)=> {
 
         return <Fragment>
             <div>
-            
                 <Component {...propsRoute} />
             </div>
         </Fragment>

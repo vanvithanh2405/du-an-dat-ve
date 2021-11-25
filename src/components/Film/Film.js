@@ -58,7 +58,7 @@ export default function Film(props) {
 				</div>
 			</div>
 			<div className="title">
-				<p className="text-center">{item.tenPhim.length > 20 ? <span>{item.tenPhim.slice(0, 20)}...</span> : <span>{item.tenPhim}</span>}</p>
+				<p className="text-center font-bold">{item.tenPhim.length > 20 ? <span>{item.tenPhim.slice(0, 20)}...</span> : <span>{item.tenPhim}</span>}</p>
 			<div className="head1">
 				<div className="date">
 					<p>Ngày & giờ </p>
