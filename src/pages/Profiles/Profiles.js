@@ -8,6 +8,7 @@ import { history } from '../../App';
 import { layThongTinDatVeAction, layThongTinNguoiDungAction } from '../../redux/acitons/QuanLyNguoiDungAction';
 import moment from 'moment';
 import _ from 'lodash';
+import Header from '../../templates/HomeTemplate/Layout/Header/Header';
 
 
 
@@ -28,6 +29,7 @@ export default function Profiles(props) {
     }
     return (
         <div>
+            <Header />
             <div className="profileBackground"></div>
             <div className="tabsProfile">
                 <div className="profiles">
@@ -75,7 +77,7 @@ export default function Profiles(props) {
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-l text-center"><i> Hãy xem thông tin địa chỉ, suất chiếu và thời gian để trải nghiệm phim một cách tốt nhất nhé !</i></p>
 
                     <div className=" mx-4 overscroll-auto overflow-auto h-40 scrollBar">
-                        <KetQuaDatVe {...props} />
+                        <KetQuaDatVe2 {...props} />
                     </div>
                 </div>
             </div>
@@ -84,7 +86,7 @@ export default function Profiles(props) {
 }
 
 
-function KetQuaDatVe(props) {
+function KetQuaDatVe2(props) {
 
     const dispatch = useDispatch();
 
@@ -105,6 +107,7 @@ function KetQuaDatVe(props) {
             const seats = _.first(ticket.danhSachGhe)
             return <div className="p-2 lg:w-1/3 md:w-1/2 w-full text-base" key={index}>
                 <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                    <img alt="team" className="w-20 h-30 bg-gray-100 object-cover object-center flex-shrink-0 mr-4" src={ticket.hinhAnh} />
                     <div className="flex-grow">
                         <h2 className="text-gray-900 title-font font-medium tenPhim">{ticket.tenPhim}</h2>
                         <span className="diaDiem">{seats.tenHeThongRap} / {seats.tenRap}</span>

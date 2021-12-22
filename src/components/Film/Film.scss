@@ -32,8 +32,8 @@
 }
 
 .fa-play {
-  margin: 85px 73px !important;
-  font-size: 5rem;
+  margin: 85px 85px !important;
+  font-size: 4rem;
   position: absolute;
   opacity: 0;
   top: 0;
@@ -41,7 +41,14 @@
   padding: 15px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  
 }
+
+.fa-play:hover{
+  transform: scale(0.9);
+  color: red;
+}
+
 .item_Img {
   position: relative;
 }
@@ -125,7 +132,7 @@
 
 .head3 .btn {
   margin: 10px;
-  opacity: 0.25;
+  opacity: 0.8;
   transition: all 0.2s ease-in-out;
   border: none;
   border-radius: 0;

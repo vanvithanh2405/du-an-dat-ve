@@ -1,21 +1,11 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, -apple-system, "Helvetica Neue", "Segoe UI", Arial,
-    sans-serif;
-}
 
 .forms-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #000 !important ;
+  background-image: url("../../assets/img/footer-bg.67e95f05.jpg") !important ;
+  height: 950px;
 }
 
 .section-title {
@@ -233,11 +223,13 @@ body {
 
 .input-block {
   margin-bottom: 20px;
+  margin-top: 2rem;
 }
 
 .input-block label {
   font-size: 14px;
   color: #a1b4b4;
+  font-weight: bold;
 }
 
 .input-block input {
@@ -278,14 +270,35 @@ body {
 }
 
 .btn-login {
-  color: #fbfdff;
-  background: #a7e245;
-  transform: translateX(-30%);
+  color: #848484;
+  background: #fbfdff;
+  box-shadow: inset 0 0 0 2px #848484;
+  transform: translateX(30%);
+  transition: all 0.5s;
 }
 
+.btn-login:hover{
+  color:  #fbfdff;;
+  background: #848484
+}
 .btn-signup {
   color: #848484;
   background: #fbfdff;
   box-shadow: inset 0 0 0 2px #848484;
   transform: translateX(30%);
+}
+
+.btn-signup:hover{
+  color:  #fbfdff;;
+  background: #848484
+}
+
+.form-group{
+  margin-top: 2rem;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #a1b4b4;
+  font-weight: bold;
 }

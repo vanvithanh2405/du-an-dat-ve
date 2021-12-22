@@ -31,7 +31,7 @@ export default function Header(props) {
                 localStorage.removeItem(TOKEN);
                 history.push('/home');
                 window.location.reload();
-            }} className="self-center px-8 py-3 rounded">Đăng xuất</button></Fragment>
+            }} className="self-center px-8 py-3 rounded ">Đăng xuất</button></Fragment>
 
 
     }

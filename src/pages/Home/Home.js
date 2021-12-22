@@ -35,8 +35,12 @@ export default function Home(props) {
             </section>
 
 
-            <div className=" cumRapcss max-w-max max-h-full mb-5" id="cumRap">
-                <HomeMenu heThongRapChieu={heThongRapChieu} />
+            <div className='mt-20'>
+                <h3 className='text-center text-4xl'>CỤM RẠP VÀ LỊCH CHIẾU</h3>
+                <div className=" cumRapcss max-w-max max-h-full mb-5" id="cumRap">
+                
+                    <HomeMenu heThongRapChieu={heThongRapChieu} />
+                </div>
             </div>
 
             <div id="News" style={{marginTop: '10rem'}}>

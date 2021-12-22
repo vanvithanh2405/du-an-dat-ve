@@ -67,12 +67,8 @@ const CheckoutTemplate = (props) => {
     return <Route {...restProps} render={(propsRoute) => { //props.location,props.history.props.match
         
         return <Fragment>
-            <Header {...propsRoute} />
 
             {renderComponent(propsRoute)}
-
-            <Footer  />
-
 
         </Fragment>
     }} />

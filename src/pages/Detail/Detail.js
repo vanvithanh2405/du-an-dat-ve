@@ -90,109 +90,95 @@ export default function Detail(props) {
     }
     const { width } = useWindowDimensions();
     return (
-        // <div style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
-        <div>
-            <div className="backgroundDetail"></div>
+        <div className="" style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundRepeat: 'no-repeat', backgroundSize: '100%', backgroundPosition: 'center', minHeight: '100vh' }}>
             <CustomCard
-                className="detailFilm"
-                style={{ minHeight: '100vh' }}
-                effectColor="rgba(0, 0, 0,0)" // required
-
-                color="#000" // default color is white
-                blur={0} // default blur value is 10px
+                style={{ paddingTop: '150px', minHeight: '100vh', borderRadius: '0' }}
+                effectColor="#0a2029" // required
+                color="#14AEFF" // default color is white
+                blur={15} // default blur value is 10px
                 borderRadius={0} // default border radius value is 10px
             >
                 <div className="grid grid-cols-12">
-                    <div className="col-span-2"></div>
                     <div className="col-span-6 col-start-3">
-                        <div className="grid grid-cols-6 infoDetail">
-                            <div className="afterImg col-span-2">
-                                <img className=" imgDetail" src={filmDetail.hinhAnh} alt={filmDetail.hinhAnh} />
-                                <div className="afterImg1" onClick={() => {
-                                    showModal()
-                                }}><CaretRightOutlined className="playIcon" /></div>
+                        <div className="grid grid-cols-3">
+                            <div onClick={() => showModal()}>
+                                <img src={filmDetail.hinhAnh} alt={filmDetail.tenPhim} className="col-span-1" />
                             </div>
-                            <div className="col-span-4">
-                                <p className="text-3xl leading-3 font-semibold pt-3 tenFilm">{filmDetail.tenPhim}</p>
-                                <p className="text-base"><span className="font-semibold">Ngày chiếu: </span>{moment(filmDetail.ngayKhoiChieu).format('DD/MM/YYYY')}</p>
-                                <p className="text-base"><span className="font-semibold">Mô tả: </span>{filmDetail.moTa}</p>
+
+                            <div className="col-span-2 flex flex-col justify-center ml-10">
+                                <p className="text-white">Ngày Chiếu: {moment(filmDetail.ngayKhoiChieu).format('dd-mm-yyyy')}</p>
+                                <p className="text-4xl text-white">{filmDetail.tenPhim}</p>
+                                <p className="text-white">Mô tả: {filmDetail.moTa}</p>
                             </div>
                         </div>
                     </div>
-
-                    <div className="col-span-2  text-center rateFilm flex flex-col items-center justify-center">
-                        <h1 className="text-2xl text-white font-semibold">Đánh giá</h1>
-                        <h1 className="text-2xl font-semibold text-yellow-600"><Rate allowHalf value={filmDetail.danhGia / 2} style={{ color: '#3d3d3d' }} /></h1>
-                        <div className={`c100 p${filmDetail.danhGia * 10} trungBinh black dark`}>
-                            <span className="text-white">{filmDetail.danhGia * 10}%</span>
+                    <div className="col-span-3 col-end-12 flex flex-col justify-center items-center">
+                        <div className={`c100 p${filmDetail.danhGia * 10} big`}>
+                            <span classNam="text-white">{filmDetail.danhGia * 10}%</span>
                             <div className="slice">
-                                <div className="bar" />
-                                <div className="fill" />
+                                <div className="bar " />
+                                <div className="fill " />
                             </div>
                         </div>
-                    </div>
-                    <div className="col-span-2"></div>
 
-                </div>
+                        <div className="text-center">
+                            <div className="star-icon">
+                                {/* <Rate style={{ color: '#ffe066 !important' }} allowHalf defaultValue={filmDetail.danhGia / 2} /> */}
 
-
-                <div className="mt-10 container bg-white" id="tabsFilm">
-                    <Tabs defaultActiveKey="1" centered>
-                        <TabPane className="tab_header" tab="Lịch chiếu" key="1" style={{ minHeight: 300 }}>
-                            <div >
-                                <Tabs tabPosition={'left'}>
-                                    {filmDetail.heThongRapChieu?.map((hThongRap, index) => {
-                                        return <TabPane
-                                            tab={<div className="flex flex-row items-center justify-center"><img src={hThongRap.logo} className="rounded-full w-full" style={{ width: 50 }} />
-                                                <div className="text-center ml-4 font-medium">
-                                                    {hThongRap.tenHeThongRap}
-                                                </div>
-                                            </div>}
-                                            key={index} >
-                                            {hThongRap.cumRapChieu?.slice(0, 3).map((cumRap, index) => {
-                                                return <div className="mt-10" key={index}>
-                                                    <div className="flex">
-                                                        <img style={{ width: 50, height: 50 }} src={cumRap.hinhAnh} />
-                                                        <div className="ml-2">
-                                                            <p style={{ lineHeight: 1 }} className="text-base font-bold">{cumRap.tenCumRap}</p>
-                                                            <p style={{ marginTop: 0 }} className="text-sm font-medium">{cumRap.diaChi}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="thong_tin_lich_chieu grid grid-cols-9 gap-3" style={{marginTop: '5px'}}>
-                                                        {cumRap.lichChieuPhim?.slice(0, 12).map((lichChieu, index) => {
-                                                            if (localStorage.getItem(USER_LOGIN)) {
-                                                                return <NavLink className="w-20 px-2 py-2 bg-white text-center hover:bg-gray-600 text-gray-800 font-semibold border border-gray-400 rounded shadow hover:text-black" to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
-                                                                    {moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}
-                                                                </NavLink>
-                                                            } else {
-                                                                return <a onClick={clickMovie} className="w-20 px-1 py-2 bg-white text-center hover:bg-gray-600 text-gray-800 font-semibold border border-gray-400 rounded shadow hover:text-black" key={index}>
-                                                                    {moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}
-                                                                </a>
-                                                            }
-                                                        })}
-
-                                                    </div>
-                                                </div>
-                                            })}
-                                        </TabPane>
-                                    })}
-                                </Tabs>
+                                <Rate disabled allowHalf defaultValue={filmDetail.danhGia / 2} />
                             </div>
-                        </TabPane>
+                            <h3 className="text-xl text-red-500">{filmDetail.danhGia}/10 Đánh giá</h3>
+                        </div>
 
-                        <TabPane className="tab_header" tab="Đánh giá" key="3">
-                            Content of Tab Pane 3
-
-                        </TabPane>
-                    </Tabs>
+                    </div>
                 </div>
 
+                <div className="mt-10 w-2/3 bg-white p-5 container" style={{ marginLeft: 310 }}>
+                    <div>
+                        <Tabs tabPosition={'left'}>
+                            {filmDetail.heThongRapChieu?.map((heThongRap, index) => {
+                                return <TabPane tab={<div className="flex items-center">
+                                    <img src={heThongRap.logo} width={50} className="rounded-full" alt={heThongRap.tenHeThongRap} />
+                                    <h3 className="ml-5">{heThongRap.tenHeThongRap}</h3>
+                                </div>}
+                                    key={index}>
+                                    <div className="tab-scroll-bar">
+                                        {heThongRap.cumRapChieu?.map((cumRap, index) => {
+                                            return <div className="mt-5" key={index}>
+                                                <div className="flex">
+                                                    <img className="rounded-md" src={cumRap.hinhAnh} alt={cumRap.tenCumRap} style={{ width: 50, height: 50 }} />
 
+                                                    <div className="ml-2">
+                                                        <p className="text-xl mb-2">{cumRap.tenCumRap}</p>
+                                                        <p className="text-xs opacity-80">{cumRap.diaChi}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex flex-wrap">
+                                                    {cumRap.lichChieuPhim?.slice(0, 12).map((lichChieu, index) => {
+                                                        if (localStorage.getItem(USER_LOGIN)) {
+                                                            return <NavLink className="col-span-1 mt-3 mr-5 w-20 px-2 py-2 bg-white text-center hover:bg-gray-100 text-gray-800 font-semibold border border-gray-400 rounded shadow hover:text-black" to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
+                                                                {moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}
+                                                            </NavLink>
+                                                        } else {
+                                                            return <span onClick={clickMovie} className="cursor-pointer col-span-1 mt-5 mr-5 w-20 px-2 py-3 bg-white text-center hover:bg-gray-100 text-gray-800 font-semibold border border-gray-400 rounded shadow hover:text-black" key={index}>
+                                                                {moment(lichChieu.ngayChieuGioChieu).format('HH:MM')}
+                                                            </span>
+                                                        }
+                                                    })}
+                                                </div>
+                                            </div>
+                                        })}
+                                    </div>
+                                </TabPane>
+                            })}
+                        </Tabs>
+                    </div>
+                </div>
             </CustomCard>
 
-            <Modal visible={isModalVisible} centered width={1000} height={500}
+            <Modal visible={isModalVisible} centered
                 style={{ width: (width / 100) }} footer onOk={handleOk} onCancel={handleCancel}>
-                <iframe style={{ width: '100%' }} height="500px" src={convertLink(filmDetail?.trailer)}></iframe>
+                <iframe style={{ width: '100%' }} height="400px" src={convertLink(filmDetail?.trailer)}></iframe>
             </Modal>
         </div>
     )

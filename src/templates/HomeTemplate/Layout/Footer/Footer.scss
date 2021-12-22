@@ -1,32 +1,215 @@
+$mobile-width: 600px;
+$tablet-width: 1024px;
 
-#button-addon1 {
-  color: white;
-  transition: all 0.5s ease-in-out;
-  opacity: 0.5;
-}
-#button-addon1:hover {
-  transform: scale(1.2);
-  opacity: 1;
-}
-.fa-paper-plane {
-  color: white;
-}
-.form-control {
-  background-color: transparent;
-}
-.form-control::placeholder {
-  font-size: 0.95rem;
-  color: #aaa;
-  font-style: italic;
-}
-
-.form-control.shadow-0:focus {
-  box-shadow: none;
-}
-
-@media screen and (max-width: 768px) {
-  .footerCss {
-    flex-direction: row !important;
-    align-items: center !important;
+@mixin mobile {
+  @media only screen and (max-width: $mobile-width) {
+    @content;
   }
+}
+
+@mixin tablet {
+  @media only screen and (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+.footer {
+  position: relative;
+  padding: 7rem 1rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  a {
+    color: #fff;
+
+    &:hover {
+      // color: rgba(251, 191, 36, 1);
+    }
+  }
+
+  &__content {
+    max-width: 1000px;
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center !important;
+      margin-bottom: 3rem;
+
+      .logo {
+        font-size: 2.5rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center !important ;
+      }
+    }
+
+    &__menus {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+
+        .footer__content__menu {
+          font-size: 1rem !important;
+        }
+      }
+    }
+
+    &__menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      margin-top: 1rem;
+
+      font-size: 1.2rem;
+      font-weight: 600;
+
+      & > * ~ * {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+.social-icons{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+}
+.social-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin: 10px 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: "Halvetica Neue",sans-serif,"Arial";
+    font-size: 2.5rem;
+    text-decoration: none;
+    transition: all 0.15s ease; 
+             
+}
+/* Tooltips */
+.tooltip {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    text-transform: uppercase;
+    transform: translate(-50%, -100%);
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+  .tooltip:after {
+    display: block;
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    content: "";
+    border: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: transparent;
+    transform: translate(-50%, 100%);
+  }
+
+/* color */
+.social-icon--codepen{
+    background: #000;
+    color: #fff;
+ 
+}
+.social-icon--github{
+    background: #4284c0;
+    color: #fff;
+
+}
+.social-icon--twitter{
+    background: #2b97f1;
+    color: #fff;
+
+}
+.social-icon--youtube{
+    background: #fa3217;
+    color: white;
+ 
+}
+.social-icon--instagram{
+    background: #527fa6;
+    color: white;
+ 
+}
+.social-icon--facebook{
+    background: #3b5a9b;
+    color: white;
+  
+}
+/* Hover Effect*/
+.social-icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -150%);
+}
+.social-icon--codepen .tooltip{
+    background: #000;
+    columns: currentColor;
+}
+.social-icon--codepen .tooltip::after{
+    border-top-color: black;
+}
+
+.social-icon--facebook .tooltip{
+    background: #3b5a9b;
+    columns: currentColor;
+}
+.social-icon--facebook .tooltip::after{
+    border-top-color: #3b5a9a;
+}
+.social-icon--twitter .tooltip{
+    background: #2b97f1;
+    columns: currentColor;
+}
+.social-icon--twitter .tooltip::after{
+    border-top-color: #2b97f1;
+}
+
+.social-icon--youtube .tooltip{
+    background: #f31344;
+    columns: currentColor;
+}
+.social-icon--youtube .tooltip::after{
+    border-top-color: #f31344;
+}
+
+.social-icon--instagram .tooltip{
+    background: #527fa6;
+    columns: currentColor;
+}
+.social-icon--instagram .tooltip:after{
+    border-top-color: #527fa6;
+}
+
+
+.social-icon--github .tooltip{
+    background: #4284c0;
+    columns: currentColor;
+}
+/* icon after effect */
+.social-icon--github .tooltip::after{
+    border-top-color: #4284c0;
 }

@@ -76,7 +76,7 @@ export default function Film(props) {
 				</div>
 			</div>
 			<div className="head3 text-center">
-				<button className="btn btn-secondary opacity-30 hover:opacity-100 font-medium" onClick={() => {
+				<button className="btn btn-secondary opacity-90 hover:opacity-100 font-medium" onClick={() => {
 					history.push(`/detail/${item.maPhim}`);
 				}}>CHI TIẾT</button>
 			</div></div>

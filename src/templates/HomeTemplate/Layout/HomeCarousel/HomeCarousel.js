@@ -76,10 +76,10 @@ export default function HomeCarousel(props) {
                 <img src={img1} className="imgPoster opacity-1 w-full h-full" alt={img1} />
                 <img src={imgMB1} className="imgMBPoster opacity-1 w-full h-full" alt={img1} />
                 <div className="infoPoster">
-                    <h1 className="tenPhim4">IT <br/> Chú hề ma quái</h1>
+                    <h1 className="tenPhim4">IT <br /> Chú hề ma quái</h1>
                     <h4>18/10/2021</h4>
                     <div className="moTa">
-                    <p>Lorem, ipsum doloe sit amet, consestetur adipiscing elit, Nec vitae aliquet non dipretium, tempus. Et nunc quis sed et, risus purus massa. </p>
+                        <p className="font-semibold">Là một bộ phim kinh dị siêu nhiên Mỹ ra mắt năm 2017 của đạo diễn Andy Muschietti. Đây là phần đầu tiên trong kế hoạch sản xuất loạt phim It hai phần dựa trên cuốn tiểu thuyết cùng tên của nhà văn Stephen King. Nhóm biên kịch của phim gồm có Chase Palmer, Cary Fukunaga và Gary Dauberman. </p>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@ export default function HomeCarousel(props) {
                     <h1 className="tenPhim1">AquaMan</h1>
                     <h4>31/10/2021</h4>
                     <div className="moTa ">
-                    <p>Lorem, ipsum doloe sit amet, consestetur adipiscing elit, Nec vitae aliquet non dipretium, tempus. Et nunc quis sed et, risus purus massa. </p>
+                        <p className="font-semibold">Phim điện ảnh siêu anh hùng của Mỹ dựa trên nhân vật Aquaman của DC Comics. Đây là phim thứ sáu của DC Extended Universe, do James Wan đảm nhiệm vai trò đạo diễn, David Leslie Johnson-McGoldrick và Will Beall thực hiện phần kịch bản từ phần cốt truyện của Wan, Beall và Geoff Johns. </p>
                     </div>
                 </div>
 
@@ -102,7 +102,7 @@ export default function HomeCarousel(props) {
                     <h1 className="tenPhim2 bg-gradient-to-r from-gray-200 to-blue-300">Frozen</h1>
                     <h4>11/11/2021</h4>
                     <div className="moTa">
-                    <p>Lorem, ipsum doloe sit amet, consestetur adipiscing elit, Nec vitae aliquet non dipretium, tempus. Et nunc quis sed et, risus purus massa. </p>
+                        <p className="font-semibold">Là phim điện ảnh nhạc kịch kỳ ảo sử dụng công nghệ hoạt hình máy tính của Mỹ do Walt Disney Animation Studios sản xuất và Walt Disney Pictures phát hành vào năm 2013.[5] Đây là bộ phim hoạt hình chiếu rạp thứ 53 trong series Walt Disney Animated Classics. Lấy cảm hứng từ câu chuyện cổ tích Bà chúa Tuyết của nhà văn Hans Christian Andersen </p>
                     </div>
                 </div>
 
@@ -111,10 +111,10 @@ export default function HomeCarousel(props) {
                 <img src={img4} className="imgPoster opacity-1 w-full h-full" alt={img4} />
                 <img src={imgMB4} className="imgMBPoster opacity-1 w-full h-full" alt={img4} />
                 <div className="infoPoster">
-                    <h1 className="tenPhim3">Avengers <br/> Infinity War</h1>
+                    <h1 className="tenPhim3">Avengers <br /> Infinity War</h1>
                     <h4>20/11/2021</h4>
                     <div className="moTa">
-                    <p>Lorem, ipsum doloe sit amet, consestetur adipiscing elit, Nec vitae aliquet non dipretium, tempus. Et nunc quis sed et, risus purus massa. </p>
+                        <p className="font-semibold">Sau khi lấy được Viên đá Sức mạnh, một trong sáu Viên đá Vô cực từ hành tinh Xandar, Thanos cùng các con nuôi - Ebony Maw, Cull Obsidian, Proxima Midnight và Corvus Glaive - tấn công tàu Statesman đang chở theo những cư dân tị nạn Asgard, sát hại một nửa số người ở đây. Thanos tra tấn Thor nhằm buộc Loki giao nộp Viên đá Không gian ẩn chứa trong khối Tesseract. </p>
                     </div>
                 </div>
 
