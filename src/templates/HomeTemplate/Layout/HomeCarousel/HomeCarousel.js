@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Carousel } from 'antd';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCarouselAction } from '../../../../redux/acitons/CarouselAction';
 import img1 from './../../../../imgRap/POSTER/POSTER 1.JPG';
@@ -17,7 +16,7 @@ import './HomeCarousel.css'
 
 export default function HomeCarousel(props) {
 
-    const { arrImg } = useSelector(state => state.CarouselReducer);
+    // const { arrImg } = useSelector(state => state.CarouselReducer);
 
     const dispatch = useDispatch();
 

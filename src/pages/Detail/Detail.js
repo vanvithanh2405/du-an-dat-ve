@@ -108,7 +108,7 @@ export default function Detail(props) {
                             <div className="col-span-2 flex flex-col justify-center ml-10">
                                 <p className="text-white">Ngày Chiếu: {moment(filmDetail.ngayKhoiChieu).format('dd-mm-yyyy')}</p>
                                 <p className="text-4xl text-white">{filmDetail.tenPhim}</p>
-                                <p className="text-white">Mô tả: {filmDetail.moTa}</p>
+                                <p className="text-white text-lg">Mô tả: {filmDetail.moTa}</p>
                             </div>
                         </div>
                     </div>

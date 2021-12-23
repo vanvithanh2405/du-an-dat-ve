@@ -24,14 +24,14 @@ export default function Header(props) {
         }
         return <Fragment> <button onClick={() => {
             history.push('/profile')
-        }} className="text-lg self-center px-8 py-3 rounded"><UserOutlined style={{ fontSize: '20px' }} /> {userLogin.taiKhoan}</button>
+        }} className="text-lg self-center py-3 rounded font-semibold"><UserOutlined style={{ fontSize: '25px' }} /> XIN CHÀO, {userLogin.hoTen} |</button>
 
             <button onClick={() => {
                 localStorage.removeItem(USER_LOGIN);
                 localStorage.removeItem(TOKEN);
                 history.push('/home');
                 window.location.reload();
-            }} className="text-lg self-center px-8 py-3 rounded ">Đăng xuất</button></Fragment>
+            }} className="text-lg self-center px-3 py-3 rounded italic ">THOÁT</button></Fragment>
 
 
     }
@@ -49,14 +49,14 @@ export default function Header(props) {
         }
         return <Fragment> <button onClick={() => {
             history.push('/profile')
-        }} className="text-lg self-center px-4 py-2 rounded"><UserOutlined style={{ fontSize: '20px' }} /> {userLogin.taiKhoan}</button>
+        }} className="text-lg self-center py-3 rounded"><UserOutlined style={{ fontSize: '20px' }} /> XIN CHÀO, {userLogin.taiKhoan} !</button>
 
             <button onClick={() => {
                 localStorage.removeItem(USER_LOGIN);
                 localStorage.removeItem(TOKEN);
                 history.push('/home');
                 window.location.reload();
-            }} className="text-lg self-center px-4 py-2 rounded">Đăng xuất</button></Fragment>
+            }} className="text-lg self-center px-3 py-3 rounded italic">THOÁT</button></Fragment>
 
 
     }
